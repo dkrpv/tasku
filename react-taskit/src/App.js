@@ -18,11 +18,8 @@ function App() {
     </Navbar>
     <div
       style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        height: "100%",
-        margin: "0",
+        position: 'absolute', left: '50%', top: '50%',
+        transform: 'translate(-50%, -50%)'
       }}
     >
     <tbody>
