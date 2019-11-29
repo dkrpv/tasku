@@ -16,8 +16,17 @@ function App() {
       <Nav.Link href="#pricing">My Tasks</Nav.Link>
       </Nav>
     </Navbar>
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        height: "100%",
+        margin: "0",
+      }}
+    >
     <tbody>
-      <table className="cardTable">
+      <table class="cardTable">
         <th>
         <Card style={{ width: '18rem' }}>
           <Card.Img variant="top" src={ placeholder } />
@@ -59,6 +68,7 @@ function App() {
               </th>
         </table>
       </tbody>
+      </div>
     </div>
   );
 }
