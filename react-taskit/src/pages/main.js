@@ -36,7 +36,7 @@ const Main = ({ setPage }) => (
               Lorem Ipsum is simply dummy text of the printing and typesetting industry.
               Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
             </Card.Text>
-            <Button variant="success">Look for Tasks</Button>
+            <Button variant="success" onClick={() => setPage('doTask')}>Look for Tasks</Button>
           </Card.Body>
           </Card>
           </th>
@@ -49,7 +49,7 @@ const Main = ({ setPage }) => (
                 Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                 Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
               </Card.Text>
-              <Button variant="success">Profile</Button>
+              <Button variant="success" onClick={() => setPage('profile')}>Profile</Button>
             </Card.Body>
             </Card>
             </th>

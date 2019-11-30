@@ -1,8 +1,8 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const createTask = ({ setPage }) => (
-  <div className="createTask">
+const myTask = ({ setPage }) => (
+  <div className="profile">
   <div
       style={{
         position: 'absolute', left: '50%', top: '50%',
@@ -13,4 +13,4 @@ const createTask = ({ setPage }) => (
   </div>
 )
 
-export default createTask
+export default myTask
