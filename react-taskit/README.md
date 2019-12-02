@@ -10,3 +10,4 @@
 
 https://react-bootstrap.github.io/components/buttons/
 https://react-bootstrap.github.io/getting-started/introduction
+https://github.com/FormidableLabs/react-animations
