@@ -1,5 +1,4 @@
-import React, { setPage } from 'react';
-import { Component } from 'react';
+import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Card, Button } from 'react-bootstrap';
 import placeholder from './placeholder.jpg';
@@ -9,8 +8,7 @@ import { tada } from 'react-animations';
 
 const PopUpTada = styled.div`animation: 1s ${keyframes`${tada}`}`;
 
-export default class Main extends Component {
-  render() {
+const Main = ({ setPage }) => {
     return(
   <div className="Main">
   <div
@@ -21,7 +19,7 @@ export default class Main extends Component {
     >
   <PopUpTada>
   <tbody>
-    <table class="cardTable">
+    <table className="cardTable">
       <th>
         <Card style={{ width: '18rem' }}>
           <Card.Img variant="top" src={ placeholder } />
@@ -67,5 +65,6 @@ export default class Main extends Component {
     </div>
     </div>
     )
-  }
 }
+
+export default Main

@@ -59,4 +59,4 @@ const createTask = ({ setPage }) => (
   </div>
 )
 
-export default createTask
+export default createTask;

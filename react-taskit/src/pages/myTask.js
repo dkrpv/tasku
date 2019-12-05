@@ -1,5 +1,4 @@
-import React, { setPage } from 'react';
-import { Component } from 'react';
+import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Alert from 'react-bootstrap/Alert';
 import styled, { keyframes } from 'styled-components';
@@ -7,8 +6,7 @@ import { fadeIn } from 'react-animations';
 
 const FadeIn = styled.div`animation: 2s ${keyframes`${fadeIn}`}`;
 
-export default class doTask extends Component {
-  render() {
+const MyTask = ({ setPage }) => {
     return(
     <div className="profile">
     <div
@@ -38,4 +36,5 @@ export default class doTask extends Component {
     </div>
   )
   }
-}
+
+export default MyTask;
