@@ -4,9 +4,9 @@ import { Card, Button } from 'react-bootstrap';
 import placeholder from './placeholder.jpg';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import styled, { keyframes } from 'styled-components';
-import { tada } from 'react-animations';
+import { fadeIn } from 'react-animations';
 
-const PopUpTada = styled.div`animation: 1s ${keyframes`${tada}`}`;
+const FadeIn = styled.div`animation: 2s ${keyframes`${fadeIn}`}`;
 
 const Main = ({ setPage }) => {
     return(
@@ -17,7 +17,7 @@ const Main = ({ setPage }) => {
         transform: 'translate(-50%, -50%)'
       }}
     >
-  <PopUpTada>
+  <FadeIn>
   <tbody>
     <table className="cardTable">
       <th>
@@ -61,7 +61,7 @@ const Main = ({ setPage }) => {
               </th>
         </table>
       </tbody>
-      </PopUpTada>
+      </FadeIn>
     </div>
     </div>
     )

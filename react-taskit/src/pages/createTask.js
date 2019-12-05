@@ -4,9 +4,14 @@ import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col';
 import InputGroup from 'react-bootstrap/InputGroup';
 import Button from 'react-bootstrap/Button';
+import styled, { keyframes } from 'styled-components';
+import { fadeIn } from 'react-animations';
+
+const FadeIn = styled.div`animation: 2s ${keyframes`${fadeIn}`}`;
 
 const createTask = ({ setPage }) => (
   <div className="createTask">
+  <FadeIn>
   <div
       style={{
         position: 'absolute', left: '50%', top: '50%',
@@ -56,6 +61,7 @@ const createTask = ({ setPage }) => (
     </Button>
     </Form>
   </div>
+  </FadeIn>
   </div>
 )
 
