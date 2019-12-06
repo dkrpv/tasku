@@ -13,7 +13,7 @@ const App = () => {
   return (
     <div className="App">
     <Navbar bg="success" variant="dark">
-      <Navbar.Brand onClick={() => setPage('main')}>Replace</Navbar.Brand>
+      <Navbar.Brand onClick={() => setPage('main')}>TaskIt</Navbar.Brand>
       <Nav className="mr-auto">
       <Nav.Link onClick={() => setPage('main')}>Home</Nav.Link>
       <Nav.Link onClick={() => setPage('profile')}>Profile</Nav.Link>

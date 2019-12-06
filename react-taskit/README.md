@@ -1,13 +1,7 @@
 # React Taskit
 
 1. Install nodejs
-2. npm install react react-dom --save
-3. npm install webpack webpack-dev-server webpack-cli --save
-4. npm install babel-core babel-loader babel-preset-env babel-preset-react html-webpack-plugin --save-dev
-5. npm install react-bootstrap bootstrap
-6. cd react-taskit
-7. npm start
+1.5 cd react-taskit
+2. npm install
 
-https://react-bootstrap.github.io/components/buttons/
-https://react-bootstrap.github.io/getting-started/introduction
-https://github.com/FormidableLabs/react-animations
+Nothing else, npm install will look at our package.json and install all itself

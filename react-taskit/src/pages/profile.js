@@ -1,6 +1,8 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+var repCount = 0;
+
 const profile = ({ setPage }) => (
   <div className="profile">
   <div
