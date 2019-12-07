@@ -1,10 +1,9 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Jumbotron from 'react-bootstrap/Jumbotron';
+import Alert from 'react-bootstrap/Alert';
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
-import DoTask from './doTask';
-import MyTask from './myTask';
 import styled, { keyframes } from 'styled-components';
 import { fadeIn } from 'react-animations';
 
@@ -34,10 +33,38 @@ const profile = ({ setPage }) => (
       </p>
       <Tabs defaultActiveKey="createTask" id="profileTabs">
         <Tab eventKey="createTask" title="Create Task">
-          <DoTask />
+        <Alert variant="dark"
+            style={{
+              height: '60vh',
+              width: '70vh',
+            }}
+          >
+            <Alert.Heading>Tasks in your Area</Alert.Heading>
+            <p>
+              There are no tasks available. <Alert.Link onClick={() => setPage('createTask')}>Create</Alert.Link> one now!
+            </p>
+            <hr />
+            <p className="mb-0">
+              Before doing tasks, please read our <Alert.Link>Terms And Conditions</Alert.Link>.
+            </p>
+        </Alert>
         </Tab>
         <Tab eventKey="myTask" title="My Tasks">
-          <MyTask />
+        <Alert variant="dark"
+            style={{
+              height: '60vh',
+              width: '70vh',
+            }}
+          >
+            <Alert.Heading>Your Tasks</Alert.Heading>
+            <p>
+              You have no Tasks. <Alert.Link onClick={() => setPage('createTask')}>Create</Alert.Link> one now!
+            </p>
+            <hr />
+            <p className="mb-0">
+              Before creating tasks, please read our <Alert.Link>Terms And Conditions</Alert.Link>.
+            </p>
+        </Alert>
         </Tab>
       </Tabs>
   </Jumbotron>
