@@ -22,7 +22,10 @@ const profile = ({ setPage }) => (
     >
   <Jumbotron
       style={{
-        width: '60vw'
+        width: '60vw',
+        height: '100vh',
+        position: 'relative',
+        top: '20vh'
       }}
   >
       <h1>{ name }</h1>
