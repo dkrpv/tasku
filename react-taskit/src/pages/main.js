@@ -6,7 +6,15 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import styled, { keyframes } from 'styled-components';
 import { fadeIn } from 'react-animations';
 
+import Map from './map'
+// *Material design icons
+import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
+import IconButton from '@material-ui/core/IconButton';
+
+// *Page scroller test
+
 const FadeIn = styled.div`animation: 2s ${keyframes`${fadeIn}`}`;
+
 
 const Main = ({ setPage }) => {
     return(
@@ -20,6 +28,19 @@ const Main = ({ setPage }) => {
   <FadeIn>
   <tbody>
     <table className="cardTable">
+    <th>
+        <Card style={{ width: '18rem' }}>
+          <Card.Img variant="top" src={ placeholder } />
+          <Card.Body>
+            <Card.Title>Get Started</Card.Title>
+            <Card.Text>
+              Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+              Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
+            </Card.Text>
+            <Button variant="success" onClick={() => setPage('jobSelect')}>Get Started</Button>
+          </Card.Body>
+          </Card>
+      </th>
       <th>
         <Card style={{ width: '18rem' }}>
           <Card.Img variant="top" src={ placeholder } />
@@ -63,6 +84,16 @@ const Main = ({ setPage }) => {
       </tbody>
       </FadeIn>
     </div>
+    <div class="downArrow">
+    <IconButton size="medium">
+          <ArrowDownwardIcon fontSize="inherit" />
+    </IconButton>
+    </div>
+    {/*
+    <div class="Map">
+    <Map width="10vw" height="10vh"></Map>
+    </div>
+    */}
     </div>
     )
 }
