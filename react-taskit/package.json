@@ -3,12 +3,17 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "^4.7.2",
     "bootstrap": "^4.4.1",
+    "firebase": "^7.5.2",
     "react": "next",
     "react-animations": "^1.0.0",
     "react-bootstrap": "^1.0.0-beta.16",
     "react-dom": "next",
+    "react-google-button": "^0.6.0",
+    "react-map-gl": "^5.1.3",
     "react-scripts": "next",
+    "react-with-firebase-auth": "^1.2.0",
     "styled-components": "^4.4.1"
   },
   "scripts": {
