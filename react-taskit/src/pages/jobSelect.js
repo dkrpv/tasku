@@ -27,7 +27,7 @@ const useStyles = makeStyles(theme => ({
     },
   }));
 
-  export default function Chips() {
+  export default function Chips({setPage}) {
     const classes = useStyles();
   
     return (
@@ -84,6 +84,9 @@ const useStyles = makeStyles(theme => ({
         </div>
         </table>
         </tbody>
+        <Button variant="contained" color="primary" onClick={() => setPage('signUp')}>
+          Next
+        </Button>
       </div>
     );
   }
