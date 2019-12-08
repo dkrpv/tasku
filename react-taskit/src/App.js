@@ -15,7 +15,7 @@ import SignIn from './pages/signIn';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const App = () => {
-  const [page, setPage] = useState('main')
+  const [page, setPage] = useState('main');
   return (
     <div className="App">
     <Navbar bg="success" variant="dark">
