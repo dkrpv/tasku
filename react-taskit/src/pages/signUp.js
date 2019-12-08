@@ -11,6 +11,9 @@ import { fadeIn } from 'react-animations';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+//* Material UI Avatar
+import Avatar from './avatar'
+
 
 const firebaseApp = firebase.initializeApp(firebaseConfig);
 
@@ -60,7 +63,7 @@ class App extends Component {
         <br></br>
         {
             user
-                ? <img src={user.photoURL} width="150" height="150"></img>
+                ? <Avatar source={user.photoURL}></Avatar>
                 : <p></p>
         }
         </Alert>
