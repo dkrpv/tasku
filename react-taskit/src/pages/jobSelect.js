@@ -15,6 +15,11 @@ import HouseIcon from '@material-ui/icons/House';
 //* Material UI imports
 import Button from '@material-ui/core/Button';
 
+//* Animations
+import styled, { keyframes } from 'styled-components';
+import { fadeIn } from 'react-animations';
+
+const FadeIn = styled.div`animation: 2s ${keyframes`${fadeIn}`}`;
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -32,6 +37,7 @@ const useStyles = makeStyles(theme => ({
   
     return (
       <div className={classes.root}>
+        <FadeIn>
         <tbody>
         <table class="jobs">
         <h2 class="title">Select Your Tasks</h2>
@@ -84,9 +90,15 @@ const useStyles = makeStyles(theme => ({
         </div>
         </table>
         </tbody>
+        <div style={{
+          position: 'absolute', left: '50%', top: '70%',
+          transform: 'translate(-50%, -50%)',
+        }}>
         <Button variant="contained" color="primary" onClick={() => setPage('signUp')}>
           Next
         </Button>
+        </div>
+        </FadeIn>
       </div>
     );
   }
