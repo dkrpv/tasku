@@ -14,20 +14,19 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 //* Material UI Avatar
 import Avatar from './avatar'
 
+//* Material UI imports
+import Button from '@material-ui/core/Button';
+import { useLocalState } from './hooks';
+
 
 const firebaseApp = firebase.initializeApp(firebaseConfig);
 
 const FadeIn = styled.div`animation: 2s ${keyframes`${fadeIn}`}`;
 
 
-class App extends Component {
-    render() {
-      const {
-        user,
-        signOut,
-        signInWithGoogle,
-      } = this.props;
-  
+const App = ({ setPage, user, signOut, signInWithGoogle }) => {
+      const [userName, setUserName] = useLocalState('userName');
+      const [userPhoto, setUserPhoto] = useLocalState('userPhoto');
       return (
         <div className="App">
         <div
@@ -44,7 +43,6 @@ class App extends Component {
         }}
         >
         <Alert.Heading>Sign Up</Alert.Heading>
-        
         <hr />
         {
             user
@@ -57,7 +55,7 @@ class App extends Component {
   
         {
             user
-                ? <button onClick={signOut}>Sign out</button>
+                ? <Button variant="contained" color="secondary" onClick={signOut}>Sign out</Button>
                 : <GoogleButton onClick={signInWithGoogle}>Sign in with Google</GoogleButton>
         }
         <br></br>
@@ -66,13 +64,25 @@ class App extends Component {
                 ? <Avatar source={user.photoURL}></Avatar>
                 : <p></p>
         }
+        {
+            user
+                ? <Button onClick={() => setUserName(user.displayName)}>Set User</Button>
+                : <p></p>
+        }
+        {
+            user
+                ? <Button onClick={() => setUserPhoto(user.photoURL)}>Set Photo</Button>
+                : <p></p>
+        }
+        <Button id="nextButton" variant="contained" color="primary" onClick={() => setPage('profile')}>
+          Next
+        </Button>
         </Alert>
         </FadeIn>
         </div>
         </div>
       );
     }
-  }
   
   const firebaseAppAuth = firebaseApp.auth();
   

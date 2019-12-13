@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import Alert from 'react-bootstrap/Alert';
@@ -7,11 +7,19 @@ import Tabs from 'react-bootstrap/Tabs';
 import styled, { keyframes } from 'styled-components';
 import { fadeIn } from 'react-animations';
 
+//* Function for handling local storage
+import {useLocalState} from './hooks';
+
+//* Material UI Avatar
+import Avatar from './avatar'
+
 var repCount = 0;
-var name = "Name Last";
 const FadeIn = styled.div`animation: 2s ${keyframes`${fadeIn}`}`;
 
-const profile = ({ setPage }) => (
+const Profile = ({ setPage }) => {
+  const [userName, setUserName] = useLocalState('userName');
+  const [userPhoto, setUserPhoto] = useLocalState('userPhoto');
+  return (
   <div className="profile">
   <FadeIn>
   <div
@@ -28,7 +36,9 @@ const profile = ({ setPage }) => (
         top: '20vh'
       }}
   >
-      <h1>{ name }</h1>
+      <h1>{ userName }</h1>
+      <Avatar source={userPhoto}></Avatar>
+
       <p>
         Reputation: { repCount }
       </p>
@@ -74,6 +84,7 @@ const profile = ({ setPage }) => (
   </div>
   </FadeIn>
   </div>
-)
+  );
+}
 
-export default profile
+export default Profile;

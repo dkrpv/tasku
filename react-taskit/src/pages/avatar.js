@@ -22,7 +22,7 @@ const useStyles = makeStyles(theme => ({
   
     return (
       <div className={classes.root}>
-        <Avatar src={source} className={classes.large} />
+        <Avatar src={source} className={classes.medium} />
       </div>
     );
   }

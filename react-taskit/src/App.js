@@ -18,10 +18,15 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 //* Material UI Avatar
 import Avatar from './pages/avatar'
 
+//* Function for handling local storage
+import {useLocalState} from './pages/hooks'
+
 
 
 const App = () => {
   const [page, setPage] = useState('main');
+  const [userName, setUserName] = useLocalState('userName');
+  const [userPhoto, setUserPhoto] = useLocalState('userPhoto');
   return (
     <div className="App">
     <Navbar bg="success" variant="dark">
@@ -35,6 +40,8 @@ const App = () => {
       <Nav className="ml-auto">
       <Nav.Link onClick={() => setPage('signIn')}>Sign In</Nav.Link>
       <Nav.Link onClick={() => setPage('signUp')}>Sign Up</Nav.Link>
+      <Nav.Link onClick={() => setPage('profile')}>{userName}</Nav.Link>
+      <Avatar source={userPhoto}></Avatar>
       </Nav>
     </Navbar>
     {page === 'main' && <Main setPage={setPage} />}
