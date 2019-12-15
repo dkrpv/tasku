@@ -15,7 +15,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Avatar from './avatar'
 
 //* Material UI imports
-import Button from '@material-ui/core/Button';
+import { Button } from 'react-bootstrap';
 import { useLocalState } from './hooks';
 
 
@@ -55,7 +55,7 @@ const App = ({ setPage, user, signOut, signInWithGoogle }) => {
   
         {
             user
-                ? <Button variant="contained" color="secondary" onClick={signOut}>Sign out</Button>
+                ? <Button variant="success" onClick={signOut}>Sign out</Button>
                 : <GoogleButton onClick={signInWithGoogle}>Sign in with Google</GoogleButton>
         }
         <br></br>
@@ -66,15 +66,15 @@ const App = ({ setPage, user, signOut, signInWithGoogle }) => {
         }
         {
             user
-                ? <Button onClick={() => setUserName(user.displayName)}>Set User</Button>
+                ? <Button variant="success" onClick={() => setUserName(user.displayName)}>Set User</Button>
                 : <p></p>
         }
         {
             user
-                ? <Button onClick={() => setUserPhoto(user.photoURL)}>Set Photo</Button>
+                ? <Button variant="success" onClick={() => setUserPhoto(user.photoURL)}>Set Photo</Button>
                 : <p></p>
         }
-        <Button id="nextButton" variant="contained" color="primary" onClick={() => setPage('profile')}>
+        <Button id="nextButton" variant="success" onClick={() => setPage('profile')}>
           Next
         </Button>
         </Alert>

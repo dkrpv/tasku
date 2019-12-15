@@ -21,12 +21,17 @@ import Avatar from './pages/avatar'
 //* Function for handling local storage
 import {useLocalState} from './pages/hooks'
 
-
-
 const App = () => {
   const [page, setPage] = useState('main');
   const [userName, setUserName] = useLocalState('userName');
   const [userPhoto, setUserPhoto] = useLocalState('userPhoto');
+  var signIn = "Sign In";
+  var signUp = "Sign Up";
+  if (userName) {
+    signIn = "";
+    signUp = "";
+  }
+
   return (
     <div className="App">
     <Navbar bg="success" variant="dark">
@@ -38,8 +43,8 @@ const App = () => {
       <Nav.Link onClick={() => setPage('mapPage')}>Map</Nav.Link>
       </Nav>
       <Nav className="ml-auto">
-      <Nav.Link onClick={() => setPage('signIn')}>Sign In</Nav.Link>
-      <Nav.Link onClick={() => setPage('signUp')}>Sign Up</Nav.Link>
+  <Nav.Link onClick={() => setPage('signIn')}>{ signIn }</Nav.Link>
+  <Nav.Link onClick={() => setPage('signUp')}>{ signUp }</Nav.Link>
       <Nav.Link onClick={() => setPage('profile')}>{userName}</Nav.Link>
       <Avatar source={userPhoto}></Avatar>
       </Nav>
