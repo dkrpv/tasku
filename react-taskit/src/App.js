@@ -29,7 +29,7 @@ const App = () => {
   var signUp = "Sign Up";
   if (userName) {
     signIn = "";
-    signUp = "";
+    signUp = "Sign Out";
   }
 
   return (
