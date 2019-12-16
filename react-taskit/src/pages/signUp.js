@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import withFirebaseAuth from 'react-with-firebase-auth'
 import * as firebase from 'firebase/app';
 import 'firebase/auth';
+import '.././App.css';
 import firebaseConfig from './firebaseConfig';
 import GoogleButton from 'react-google-button'
 
@@ -31,12 +32,12 @@ const App = ({ setPage, user, signOut, signInWithGoogle }) => {
         <div className="App">
         <div
             style={{
-                position: 'absolute', left: '50%', top: '50%',
-                transform: 'translate(-50%, -50%)'
+                position: 'absolute', left: '80%', top: '50%',
+                transform: 'translate(-80%, -50%)'
         }}
         >
         <FadeIn>
-        <Alert variant="dark"
+        <Alert variant="light"
         style={{
           height: '60vh',
           width: '70vh',
@@ -56,7 +57,7 @@ const App = ({ setPage, user, signOut, signInWithGoogle }) => {
         {
             user
                 ? <Button variant="success" onClick={signOut}>Sign out</Button>
-                : <GoogleButton onClick={signInWithGoogle}>Sign in with Google</GoogleButton>
+                : <GoogleButton className="googleButton" onClick={signInWithGoogle}>Sign in with Google</GoogleButton>
         }
         <br></br>
         {
@@ -74,7 +75,7 @@ const App = ({ setPage, user, signOut, signInWithGoogle }) => {
                 ? <Button variant="success" onClick={() => setUserPhoto(user.photoURL)}>Set Photo</Button>
                 : <p></p>
         }
-        <Button id="nextButton" variant="success" onClick={() => setPage('profile')}>
+        <Button className="googleButton" id="nextButton" variant="success" onClick={() => setPage('profile')}>
           Next
         </Button>
         </Alert>
