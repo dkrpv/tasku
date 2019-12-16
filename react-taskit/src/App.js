@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Navbar, Nav } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 import Main from './pages/main';
 import CreateTask from './pages/createTask';
 import Profile from './pages/profile';
@@ -11,6 +12,7 @@ import MapPage from './pages/mapPage';
 import SignUp from './pages/signUp';
 import SignIn from './pages/signIn';
 import JobSelect from './pages/jobSelect'
+import Helmet from 'react-helmet';
 
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -26,7 +28,7 @@ const App = () => {
   const [userName, setUserName] = useLocalState('userName');
   const [userPhoto, setUserPhoto] = useLocalState('userPhoto');
   var signIn = "Sign In";
-  var signUp = "Sign Up";
+  var signUp = "Join TaskU";
   if (userName) {
     signIn = "";
     signUp = "Sign Out";
@@ -34,18 +36,18 @@ const App = () => {
 
   return (
     <div className="App">
-    <Navbar bg="success" variant="dark">
-      <Navbar.Brand onClick={() => setPage('main')}>TaskIt</Navbar.Brand>
+    <Helmet bodyAttributes={{style: 'background-color : #131421'}}/>
+    <Navbar bg="light" variant="light">
+      <Navbar.Brand onClick={() => setPage('main')}><b>TaskU</b></Navbar.Brand>
       <Nav className="mr-auto">
-      <Nav.Link onClick={() => setPage('main')}>Home</Nav.Link>
+      <Nav.Link className="grad" onClick={() => setPage('main')}><b>Home</b></Nav.Link>
       <Nav.Link onClick={() => setPage('profile')}>Profile</Nav.Link>
       <Nav.Link onClick={() => setPage('myTask')}>My Tasks</Nav.Link>
       <Nav.Link onClick={() => setPage('mapPage')}>Map</Nav.Link>
       </Nav>
       <Nav className="ml-auto">
-  <Nav.Link onClick={() => setPage('signIn')}>{ signIn }</Nav.Link>
-  <Nav.Link onClick={() => setPage('signUp')}>{ signUp }</Nav.Link>
-      <Nav.Link onClick={() => setPage('profile')}>{userName}</Nav.Link>
+      <Button variant="dark" onClick={() => setPage('signUp')}>{ signUp }</Button>
+      <Nav.Link onClick={() => setPage('profile')}><b>{ userName }</b></Nav.Link>
       <Avatar source={userPhoto}></Avatar>
       </Nav>
     </Navbar>

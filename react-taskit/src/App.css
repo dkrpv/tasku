@@ -28,3 +28,29 @@
     margin-top:175px;
     left: 85%;
 }
+
+.grad {
+    background: -webkit-linear-gradient(#34eba1, #00ff66);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.mainH1{
+    color: white;
+}
+
+.gradBut{
+    background-image: linear-gradient(to right, #34eba1 0%, #00ff66, #34eba1 100%);
+    height: 9vh;
+    border: none;
+    margin-right: 10px;
+}
+
+.noGradBut{
+    height: 9vh;
+    background-image: linear-gradient(to right, #131421 0%, #131421, #131421 100%);
+}
+
+.mainH5 {
+    color: white;
+}

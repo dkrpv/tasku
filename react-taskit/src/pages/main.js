@@ -5,6 +5,7 @@ import placeholder from './placeholder.jpg';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import styled, { keyframes } from 'styled-components';
 import { fadeIn } from 'react-animations';
+import '.././App.css';
 
 import Map from './map'
 // *Material design icons
@@ -21,79 +22,22 @@ const Main = ({ setPage }) => {
   <div className="Main">
   <div
       style={{
-        position: 'absolute', left: '50%', top: '50%',
-        transform: 'translate(-50%, -50%)'
+        position: 'absolute', left: '20%', top: '50%',
+        transform: 'translate(-20%, -50%)'
       }}
     >
-  <FadeIn>
-  <tbody>
-    <table className="cardTable">
-    <th>
-        <Card style={{ width: '18rem' }}>
-          <Card.Img variant="top" src={ placeholder } />
-          <Card.Body>
-            <Card.Title>Get Started</Card.Title>
-            <Card.Text>
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-              Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
-            </Card.Text>
-            <Button variant="success" onClick={() => setPage('jobSelect')}>Get Started</Button>
-          </Card.Body>
-          </Card>
-      </th>
-      <th>
-        <Card style={{ width: '18rem' }}>
-          <Card.Img variant="top" src={ placeholder } />
-          <Card.Body>
-            <Card.Title>Creating Tasks</Card.Title>
-            <Card.Text>
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-              Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
-            </Card.Text>
-            <Button variant="success" onClick={() => setPage('createTask')}>Create Task</Button>
-          </Card.Body>
-          </Card>
-          </th>
-          <th>
-          <Card style={{ width: '18rem' }}>
-            <Card.Img variant="top" src={ placeholder } />
-            <Card.Body>
-              <Card.Title>Doing Tasks</Card.Title>
-              <Card.Text>
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
-              </Card.Text>
-              <Button variant="success" onClick={() => setPage('doTask')}>Look for Tasks</Button>
-            </Card.Body>
-            </Card>
-            </th>
-            <th>
-            <Card style={{ width: '18rem' }}>
-              <Card.Img variant="top" src={ placeholder } />
-              <Card.Body>
-                <Card.Title>Adjust Preferences</Card.Title>
-                <Card.Text>
-                  Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                  Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
-                </Card.Text>
-                <Button variant="success" onClick={() => setPage('profile')}>Profile</Button>
-              </Card.Body>
-              </Card>
-              </th>
-        </table>
-      </tbody>
-      </FadeIn>
+      <h1 className="mainH1">
+        Let's make more <br />
+        time for the things <br />
+        we care about. <br />
+      </h1>
+      <h5 className="mainH5">Everyone wants more free time. <br />
+      Tasku makes it easier by creating some meaningful connections
+      </h5>
+      <br />
+      <Button className="gradBut"><b>Search for Taskees</b></Button>
+      <Button className="noGradBut"><b>Become a Taskee</b></Button>
     </div>
-    <div class="downArrow">
-    <IconButton size="medium">
-          <ArrowDownwardIcon fontSize="inherit" />
-    </IconButton>
-    </div>
-    {/*
-    <div class="Map">
-    <Map width="10vw" height="10vh"></Map>
-    </div>
-    */}
     </div>
     )
 }
