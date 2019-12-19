@@ -62,14 +62,6 @@
     color: white;
 }
 
-h5 {
-    font-family: 'Nunito Sans', sans-serif;
-}
-
-p {
-    font-family: 'Nunito Sans', sans-serif;
-}
-
 ::-webkit-scrollbar {
   width: 2px;
   height: 2px;

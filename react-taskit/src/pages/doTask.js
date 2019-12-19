@@ -28,7 +28,7 @@ const DoTask = ({ setPage }) => {
         </p>
         <hr />
         <p className="mb-0">
-          Before doing tasks, please read our <Alert.Link>Terms And Conditions</Alert.Link>.
+          Before doing tasks, please read our <Alert.Link onClick={() => setPage('termsheet')}>Terms And Conditions</Alert.Link>.
         </p>
     </Alert>
     </FadeIn>
