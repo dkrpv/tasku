@@ -20,13 +20,13 @@ const createTask = ({ setPage }) => (
     >
     <Form>
       <Form.Group controlId="formGridTitle">
-        <Form.Label>Title</Form.Label>
+        <Form.Label className="formText">Title</Form.Label>
         <Form.Control type="text" placeholder="Enter Title" />
       </Form.Group>
 
       <Form.Row>
         <Form.Group as={Col} controlId="formOffer">
-          <Form.Label>Offer</Form.Label>
+          <Form.Label className="formText">Offer</Form.Label>
           <InputGroup.Prepend>
             <Form.Control placeholder="5.00" />
               <InputGroup.Text id="inputGroupPrepend">€</InputGroup.Text>
@@ -34,7 +34,7 @@ const createTask = ({ setPage }) => (
         </Form.Group>
 
         <Form.Group as={Col} controlId="formCategorye">
-          <Form.Label>Category</Form.Label>
+          <Form.Label className="formText">Category</Form.Label>
           <Form.Control as="select">
             <option>...</option>
             <option>...</option>
@@ -42,22 +42,22 @@ const createTask = ({ setPage }) => (
         </Form.Group>
 
         <Form.Group as={Col} controlId="formCity">
-          <Form.Label>City</Form.Label>
+          <Form.Label className="formText">City</Form.Label>
           <Form.Control placeholder="New York" />
         </Form.Group>
       </Form.Row>
 
     <Form.Group controlId="formAdress">
-      <Form.Label>Address</Form.Label>
+      <Form.Label className="formText">Address</Form.Label>
       <Form.Control placeholder="20 W 34th St" />
     </Form.Group>
 
     <Form.Group id="formTermBox">
-      <Form.Check type="checkbox" label="I have read and accept the terms and conditions" />
+      <Form.Check type="checkbox" className="formText" label="I have read and accept the terms and conditions" />
     </Form.Group>
 
-    <Button variant="success" type="submit">
-      Create
+    <Button className="gradBut" type="submit">
+      <b>Create</b>
     </Button>
     </Form>
   </div>

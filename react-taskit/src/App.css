@@ -57,3 +57,7 @@
 .googleButton{
     background-image: linear-gradient(to right, #34eba1 0%, #00ff66, #34eba1 100%);
 }
+
+.formText {
+    color: white;
+}

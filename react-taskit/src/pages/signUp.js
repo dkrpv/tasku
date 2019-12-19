@@ -35,7 +35,7 @@ const App = ({ setPage, user, signOut, signInWithGoogle }) => {
                 position: 'absolute', left: '80%', top: '50%',
                 transform: 'translate(-80%, -50%)'
         }}
-        >
+          >
         <FadeIn>
         <Alert variant="light"
         style={{
