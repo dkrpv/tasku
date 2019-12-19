@@ -12,6 +12,7 @@
     "react-animations": "^1.0.0",
     "react-bootstrap": "^1.0.0-beta.16",
     "react-dom": "next",
+    "react-geocode": "^0.2.1",
     "react-google-button": "^0.6.0",
     "react-helmet": "^5.2.1",
     "react-map-gl": "^5.1.3",

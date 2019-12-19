@@ -10,7 +10,8 @@ import 'firebase/firestore';
 import firebaseConfig from './firebaseConfig';
 import * as firebase from 'firebase/app';
 import { Checkbox } from '@material-ui/core';
-
+import { green } from '@material-ui/core/colors';
+import Geocode from "react-geocode";
 
 const FadeIn = styled.div`animation: 2s ${keyframes`${fadeIn}`}`;
 var today = new Date();
@@ -29,12 +30,13 @@ class createTask extends React.Component {
      date: ""
     };
   }
-
+  
   updateInput = e => {
     this.setState({
       [e.target.name]: e.target.value
     });
   }
+  
 
   addTask = e => {
     e.preventDefault();
@@ -105,10 +107,7 @@ class createTask extends React.Component {
     </Form.Group>
 
     <Form.Group id="formTermBox">
-    <Checkbox
-            value="checkedA"
-            color="#bdbdbd"
-        />
+    <Checkbox/>
     </Form.Group>
 
     <Button className="gradBut" type="submit" onClick={this.addTask}>
