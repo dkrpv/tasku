@@ -32,10 +32,13 @@ const App = ({ setPage, user, signOut, signInWithGoogle }) => {
         <div className="App">
         <div
             style={{
-                position: 'absolute', left: '20%', top: '50%',
-                transform: 'translate(-20%, -50%)'
+                position: 'absolute', left: '10%', top: '50%',
+                transform: 'translate(-10%, -50%)'
         }}
         >
+        <FadeIn>
+        <h1 class="mainH1">Join our community of workers</h1>
+        </FadeIn>
         </div>
         <div
             style={{
