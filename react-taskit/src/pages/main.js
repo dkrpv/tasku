@@ -35,8 +35,8 @@ const Main = ({ setPage }) => {
       Tasku makes it easier by creating some meaningful connections
       </h5>
       <br />
-      <Button className="gradBut"><b>Search for Taskees</b></Button>
-      <Button className="noGradBut"><b>Become a Taskee</b></Button>
+      <Button className="gradBut" onClick={() => setPage('doTask')}><b>Search for Tasks</b></Button>
+      <Button className="noGradBut" onClick={() => setPage('createTask')}><b>Become a Tasker</b></Button>
     </div>
     </div>
     )
