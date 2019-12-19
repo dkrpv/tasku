@@ -9,6 +9,7 @@ import { fadeIn } from 'react-animations';
 import 'firebase/firestore';
 import firebaseConfig from './firebaseConfig';
 import * as firebase from 'firebase/app';
+import { Checkbox } from '@material-ui/core';
 
 
 const FadeIn = styled.div`animation: 2s ${keyframes`${fadeIn}`}`;
@@ -104,7 +105,10 @@ class createTask extends React.Component {
     </Form.Group>
 
     <Form.Group id="formTermBox">
-      <Form.Check type="checkbox" className="formText" label="I have read and accept the terms and conditions" />
+    <Checkbox
+            value="checkedA"
+            color="#bdbdbd"
+        />
     </Form.Group>
 
     <Button className="gradBut" type="submit" onClick={this.addTask}>
