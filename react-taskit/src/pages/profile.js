@@ -36,9 +36,7 @@ const Profile = ({ setPage }) => {
         top: '20vh'
       }}
   >
-      <h1>{ userName }</h1>
-      <Avatar source={userPhoto}></Avatar>
-
+      <h1 className="grad"><b>{ userName }</b></h1>
       <p>
         Reputation: { repCount }
       </p>
@@ -46,7 +44,7 @@ const Profile = ({ setPage }) => {
       </p>
       <Tabs defaultActiveKey="createTask" id="profileTabs">
         <Tab eventKey="createTask" title="Create Task">
-        <Alert variant="dark"
+        <Alert variant="light"
             style={{
               height: '60vh',
               width: '70vh',
@@ -63,7 +61,7 @@ const Profile = ({ setPage }) => {
         </Alert>
         </Tab>
         <Tab eventKey="myTask" title="My Tasks">
-        <Alert variant="dark"
+        <Alert variant="light"
             style={{
               height: '60vh',
               width: '70vh',

@@ -16,7 +16,7 @@ const MyTask = ({ setPage }) => {
         }}
       >
       <FadeIn>
-      <Alert variant="dark"
+      <Alert variant="light"
         style={{
           height: '60vh',
           width: '70vh',
