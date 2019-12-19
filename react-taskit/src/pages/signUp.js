@@ -32,6 +32,13 @@ const App = ({ setPage, user, signOut, signInWithGoogle }) => {
         <div className="App">
         <div
             style={{
+                position: 'absolute', left: '20%', top: '50%',
+                transform: 'translate(-20%, -50%)'
+        }}
+        >
+        </div>
+        <div
+            style={{
                 position: 'absolute', left: '80%', top: '50%',
                 transform: 'translate(-80%, -50%)'
         }}

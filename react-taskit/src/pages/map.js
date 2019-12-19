@@ -14,7 +14,7 @@ export default function Map({ width, height }) {
     return (<div>
         <ReactMapGL {...viewport} 
         mapboxApiAccessToken={"pk.eyJ1IjoiZWV0dXBlIiwiYSI6ImNrM3ZzcGNudDBwa3kzb28zcHV6bjdqYTAifQ.nl-qZJk6zZ8sd5MODAImKw"}
-        mapStyle="mapbox://styles/eetupe/ck1rymx8g23wc1dpa9wsqg8rk"
+        mapStyle="mapbox://styles/eetupe/ck4cqg2r43eia1cpi3pnac7w5"
         onViewportChange={(viewport) => {
             setViewport(viewport)}}>
         </ReactMapGL>
