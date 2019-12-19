@@ -12,8 +12,11 @@ import * as firebase from 'firebase/app';
 
 
 const FadeIn = styled.div`animation: 2s ${keyframes`${fadeIn}`}`;
+var today = new Date();
+var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
 
 class createTask extends React.Component {
+  
   constructor() {
     super();
     this.state = {
@@ -21,7 +24,8 @@ class createTask extends React.Component {
      category: "",
      city: "",
      offer: "",
-     title: ""
+     title: "",
+     date: ""
     };
   }
 
@@ -43,13 +47,15 @@ class createTask extends React.Component {
         city: this.state.city,
         offer: this.state.offer,
         title: this.state.title,
+        date: date,
     });  
     this.setState({
       address: "",
       category: "",
       city: "",
       offer: "",
-      title: ""
+      title: "",
+      date: ""
     });
   };
   render() {

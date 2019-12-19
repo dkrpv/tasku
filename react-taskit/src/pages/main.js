@@ -20,6 +20,7 @@ const FadeIn = styled.div`animation: 2s ${keyframes`${fadeIn}`}`;
 const Main = ({ setPage }) => {
     return(
   <div className="Main">
+  <FadeIn>
   <div
       style={{
         position: 'absolute', left: '20%', top: '50%',
@@ -38,6 +39,7 @@ const Main = ({ setPage }) => {
       <Button className="gradBut" onClick={() => setPage('doTask')}><b>Search for Tasks</b></Button>
       <Button className="noGradBut" onClick={() => setPage('createTask')}><b>Become a Tasker</b></Button>
     </div>
+    </FadeIn>
     </div>
     )
 }
