@@ -73,10 +73,7 @@ class Test extends React.Component {
                                         <Typography>
                                             address: {tasks.address}
                                         </Typography>
-                                        <Typography variant="body2" component="p">
-                                            Description
                                         <br />
-                                        </Typography>
                                     </CardContent>
                                     <CardActions>
                                     <Button size="small">Show on map</Button>
@@ -84,6 +81,7 @@ class Test extends React.Component {
                                 </Card>
                                 <br></br>
                             </div>
+                            <p>{tasks.description}</p>
                             </Jumbotron>
                             </FadeIn>
                         )
