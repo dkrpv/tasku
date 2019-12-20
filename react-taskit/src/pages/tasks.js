@@ -8,6 +8,7 @@ import styled, { keyframes } from 'styled-components';
 //* Material Ui imports
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
+import Jumbotron from 'react-bootstrap/Jumbotron';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
@@ -43,13 +44,14 @@ class Test extends React.Component {
             <FadeIn>
             <br></br>
             <div className="App">
-                <h1 class="mainH1">Tasks in your area</h1>
+                <h1 class="mainH1" class="grad">Tasks in your area</h1>
                 <br></br>
                 {
                     this.state.tasks &&
                     this.state.tasks.map( tasks => {
                         return (
                             <FadeIn>
+                            <Jumbotron>    
                             <div>
                                 <Card style={{ width: '20rem' }}>
                                     <CardContent>
@@ -79,6 +81,7 @@ class Test extends React.Component {
                                 </Card>
                                 <br></br>
                             </div>
+                            </Jumbotron>
                             </FadeIn>
                         )
                     })
