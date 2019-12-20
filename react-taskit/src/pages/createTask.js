@@ -13,6 +13,9 @@ import { Checkbox } from '@material-ui/core';
 import { green } from '@material-ui/core/colors';
 import Geocode from "react-geocode";
 
+//* Firebase imports
+import { auth, db } from './firebaseConfig'
+
 const FadeIn = styled.div`animation: 2s ${keyframes`${fadeIn}`}`;
 var today = new Date();
 var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
@@ -40,7 +43,6 @@ class createTask extends React.Component {
 
   addTask = e => {
     e.preventDefault();
-    const db = firebase.firestore();
     db.settings({
         timestampsInSnapshots: true
     });
@@ -81,7 +83,7 @@ class createTask extends React.Component {
         <Form.Group as={Col} controlId="formOffer">
           <Form.Label className="formText">Offer</Form.Label>
           <InputGroup.Prepend>
-            <Form.Control name="offer" placeholder="5.00" onChange={this.updateInput} value={this.state.offer}/>
+            <Form.Control type="number" name="offer" placeholder="5.00" onChange={this.updateInput} value={this.state.offer}/>
               <InputGroup.Text id="inputGroupPrepend">€</InputGroup.Text>
             </InputGroup.Prepend>
         </Form.Group>

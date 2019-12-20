@@ -1,0 +1,92 @@
+import React from 'react'
+import 'firebase/firestore';
+import firebaseConfig from './firebaseConfig';
+import * as firebase from 'firebase/app';
+import { fadeIn } from 'react-animations';
+import styled, { keyframes } from 'styled-components';
+
+//* Material Ui imports
+import { makeStyles } from '@material-ui/core/styles';
+import Card from '@material-ui/core/Card';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
+
+import { auth,db } from './firebaseConfig'
+
+const FadeIn = styled.div`animation: 2s ${keyframes`${fadeIn}`}`;
+
+class Test extends React.Component {
+    state = {
+        tasks:null
+    }
+
+    componentDidMount(){
+        console.log('mounted')
+        db.collection('tasks')
+            .get()
+            .then( snapshot => {
+                const tasks = []
+                snapshot.forEach( doc => {
+                    const data = doc.data()
+                    tasks.push(data)
+                })
+                this.setState( { tasks: tasks })
+
+            })
+            .catch( error => console.log(error))
+    }
+
+    render(){
+        return (
+            <FadeIn>
+            <br></br>
+            <div className="App">
+                <h1 class="mainH1">Tasks in your area</h1>
+                <br></br>
+                {
+                    this.state.tasks &&
+                    this.state.tasks.map( tasks => {
+                        return (
+                            <FadeIn>
+                            <div>
+                                <Card style={{ width: '20rem' }}>
+                                    <CardContent>
+                                        <Typography variant="h5" gutterBottom>
+                                            {tasks.title}
+                                        </Typography>
+                                        <Typography>
+                                            category: {tasks.category}
+                                        </Typography>
+                                        <Typography>
+                                            offer: {tasks.offer}€
+                                        </Typography>
+                                        <Typography>
+                                            city: {tasks.city}
+                                        </Typography>
+                                        <Typography>
+                                            address: {tasks.address}
+                                        </Typography>
+                                        <Typography variant="body2" component="p">
+                                            Description
+                                        <br />
+                                        </Typography>
+                                    </CardContent>
+                                    <CardActions>
+                                    <Button size="small">Show on map</Button>
+                                    </CardActions>
+                                </Card>
+                                <br></br>
+                            </div>
+                            </FadeIn>
+                        )
+                    })
+                } 
+            </div>
+            </FadeIn>
+        )
+    }
+}
+
+export default Test

@@ -19,8 +19,8 @@ import Avatar from './avatar'
 import { Button } from 'react-bootstrap';
 import { useLocalState } from './hooks';
 
-
-const firebaseApp = firebase.initializeApp(firebaseConfig);
+//* Firebase imports
+import { auth, db } from './firebaseConfig'
 
 const FadeIn = styled.div`animation: 2s ${keyframes`${fadeIn}`}`;
 
@@ -95,7 +95,7 @@ const App = ({ setPage, user, signOut, signInWithGoogle }) => {
       );
     }
   
-  const firebaseAppAuth = firebaseApp.auth();
+  const firebaseAppAuth = auth;
   
   const providers = {
     googleProvider: new firebase.auth.GoogleAuthProvider(),

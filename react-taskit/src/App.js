@@ -14,6 +14,7 @@ import SignIn from './pages/signIn';
 import JobSelect from './pages/jobSelect'
 import Helmet from 'react-helmet';
 import Terms from './pages/termsheet'
+import Tasks from './pages/tasks'
 
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -62,6 +63,7 @@ const App = () => {
     {page === 'signUp' && <SignUp setPage={setPage} />}
     {page === 'jobSelect' && <JobSelect setPage={setPage} />}
     {page === 'termsheet' && <Terms setPage={setPage} />}
+    {page === 'tasks' && <Tasks setPage={setPage} />}
     </div>
   );
 }
