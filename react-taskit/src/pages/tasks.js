@@ -43,7 +43,10 @@ class Test extends React.Component {
         return (
             <FadeIn>
             <br></br>
-            <div className="App">
+            <div className="App" style={{
+                paddingLeft: '30px',
+                paddingRight: '30px'
+            }}>
                 <h1 class="mainH1" class="grad">Tasks in your area</h1>
                 <br></br>
                 {
