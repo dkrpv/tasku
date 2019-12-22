@@ -55,7 +55,7 @@
 	background: transparent;
 	border: 1px solid #fff;
 }
-.noGradBut, .noGradBut: hover, .noGradBut: active, .noGradBut: focus{
+.noGradBut, .noGradBut:hover, .noGradBut:active, .noGradBut:focus{
 	/*outline btn*/
 	line-height: 30px;
 	width: 176px;
