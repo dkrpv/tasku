@@ -12,10 +12,7 @@ const FadeIn = styled.div`animation: 2s ${keyframes`${fadeIn}`}`;
 
 const GreenCheckbox = withStyles({
   root: {
-    color: green[400],
-    '&$checked': {
-      color: green[600],
-    },
+    color: '#34eb80'
   },
   checked: {},
 })(props => <Checkbox color="default" {...props} />);
