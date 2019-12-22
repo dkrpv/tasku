@@ -80,8 +80,8 @@ class createTask extends React.Component {
   <FadeIn>
   <div
       style={{
-        position: 'absolute', left: '50%', top: '80%',
-        transform: 'translate(-50%, -80%)'
+        position: 'absolute', left: '50%', top: '60%',
+        transform: 'translate(-50%, -60%)'
       }}
     >
     <Form>
