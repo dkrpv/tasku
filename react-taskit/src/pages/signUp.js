@@ -31,6 +31,11 @@ const App = ({ setPage, user, signOut, signInWithGoogle }) => {
       const [userPhoto, setUserPhoto] = useLocalState('userPhoto');
       const [isLoggedIn, setLoggedIn] = useState(false)
 
+      function signOut() {
+        firebase.auth().signOut()
+        setLoggedIn(false)
+      }
+
       const uiConfig = {
         signInFlow: "popup",
         signInOptions: [
@@ -80,7 +85,7 @@ const App = ({ setPage, user, signOut, signInWithGoogle }) => {
           <div>
           <p>Hello, {firebase.auth().currentUser.displayName}</p>
           <Avatar source={firebase.auth().currentUser.photoURL}></Avatar>
-          <Button onClick={() => firebase.auth().signOut()}>Sign out!</Button>
+          <Button onClick={signOut}>Sign out!</Button>
           <Button className="googleButton" id="nextButton" variant="success" onClick={() => setPage('profile')}>
           Next
         </Button>
