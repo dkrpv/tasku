@@ -10,7 +10,6 @@ import 'firebase/firestore';
 import firebaseConfig from './firebaseConfig';
 import * as firebase from 'firebase/app';
 import { Checkbox } from '@material-ui/core';
-import { green } from '@material-ui/core/colors';
 import Geocode from "react-geocode";
 import { withStyles } from '@material-ui/core/styles';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
@@ -24,10 +23,7 @@ var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
 
 const GreenCheckbox = withStyles({
   root: {
-    color: green[400],
-    '&$checked': {
-      color: green[600],
-    },
+    color: '#34eb80'
   },
   checked: {},
 })(props => <Checkbox color="default" {...props} />);
