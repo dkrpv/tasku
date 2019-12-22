@@ -21,6 +21,8 @@ const FadeIn = styled.div`animation: 2s ${keyframes`${fadeIn}`}`;
 var today = new Date();
 var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
 
+var key = Math.floor(Math.random() * 10000000000);
+
 const GreenCheckbox = withStyles({
   root: {
     color: '#34eb80'
