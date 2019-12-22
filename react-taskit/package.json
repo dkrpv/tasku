@@ -5,6 +5,7 @@
   "dependencies": {
     "@material-ui/core": "^4.7.2",
     "@material-ui/icons": "^4.5.1",
+    "@material-ui/lab": "^4.0.0-alpha.36",
     "bootstrap": "^4.4.1",
     "firebase": "^7.5.2",
     "helmet": "^3.21.2",
@@ -12,6 +13,7 @@
     "react-animations": "^1.0.0",
     "react-bootstrap": "^1.0.0-beta.16",
     "react-dom": "next",
+    "react-firebaseui": "^4.0.0",
     "react-geocode": "^0.2.1",
     "react-google-button": "^0.6.0",
     "react-helmet": "^5.2.1",

@@ -18,7 +18,7 @@ import { auth,db } from './firebaseConfig'
 
 const FadeIn = styled.div`animation: 2s ${keyframes`${fadeIn}`}`;
 
-class Test extends React.Component {
+class Tasks extends React.Component {
     state = {
         tasks:null
     }
@@ -95,4 +95,4 @@ class Test extends React.Component {
     }
 }
 
-export default Test
+export default Tasks

@@ -1,4 +1,4 @@
-import React, { Component, useEffect, useState } from 'react';
+import React, { Component, useEffect } from 'react';
 import withFirebaseAuth from 'react-with-firebase-auth'
 import * as firebase from 'firebase/app';
 import 'firebase/auth';
@@ -29,6 +29,7 @@ const FadeIn = styled.div`animation: 2s ${keyframes`${fadeIn}`}`;
 const App = ({ setPage, user, signOut, signInWithGoogle }) => {
       const [userName, setUserName] = useLocalState('userName');
       const [userPhoto, setUserPhoto] = useLocalState('userPhoto');
+      const [isSignedIn, setSignedIn] = useLocalState(false);
       const uiConfig = {
         signInFlow: "popup",
         signInOptions: [
@@ -40,6 +41,12 @@ const App = ({ setPage, user, signOut, signInWithGoogle }) => {
         }
       }
 
+      useEffect(() => {
+        firebase.auth().onAuthStateChanged(user => {
+          console.log("user", user)
+          setSignedIn(!!user)
+        })
+      })
       return (
         <div className="App">
         <div
@@ -49,7 +56,7 @@ const App = ({ setPage, user, signOut, signInWithGoogle }) => {
         }}
         >
         <FadeIn>
-        <h1 className="mainH1">Join our community of workers</h1>
+        <h1 class="mainH1">Join our community of workers</h1>
         </FadeIn>
         </div>
         <div
@@ -75,13 +82,13 @@ const App = ({ setPage, user, signOut, signInWithGoogle }) => {
                 </p>
         }
         <br></br>
-        <StyledFirebaseAuth
+        <StyledFirebaseAuth 
           uiConfig={uiConfig}
           firebaseAuth={firebase.auth()}
         />
         {
             user
-                ? <Button variant="success" onClick={firebase.auth().signOut()}>Sign out</Button>
+                ? <Button variant="success" onClick={signOut}>Sign out</Button>
                 : <GoogleButton className="googleButton" onClick={signInWithGoogle}>Sign in with Google</GoogleButton>
         }
         <br></br>
