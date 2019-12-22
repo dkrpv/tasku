@@ -114,3 +114,8 @@
 ::-webkit-scrollbar-corner {
   background: transparent;
 }
+
+.profileNavLink {
+	position: relative;
+	top: 5px;
+}

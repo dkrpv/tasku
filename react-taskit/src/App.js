@@ -49,7 +49,7 @@ const App = () => {
       </Nav>
       <Nav className="ml-auto">
       <Button variant="dark" onClick={() => setPage('signUp')}>{ signUp }</Button>
-      <Nav.Link onClick={() => setPage('profile')}>{ userName }</Nav.Link>
+      <Nav.Link className="profileNavLink" onClick={() => setPage('profile')}>{ userName }</Nav.Link>
       <Avatar source={userPhoto}></Avatar>
       </Nav>
     </Navbar>
