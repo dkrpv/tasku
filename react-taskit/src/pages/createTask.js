@@ -41,7 +41,8 @@ class createTask extends React.Component {
      offer: "",
      title: "",
      date: "",
-     description: ""
+     description: "",
+     key: ""
     };
   }
   
@@ -65,6 +66,7 @@ class createTask extends React.Component {
         title: this.state.title,
         date: date,
         description: this.state.description,
+        key: key,
     });  
     this.setState({
       address: "",
@@ -73,7 +75,8 @@ class createTask extends React.Component {
       offer: "",
       title: "",
       date: "",
-      description: ""
+      description: "",
+      key: ""
     });
   };
   render() {
