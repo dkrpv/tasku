@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Navbar, Nav } from 'react-bootstrap';
 import { Button } from 'react-bootstrap';
@@ -15,6 +14,7 @@ import JobSelect from './pages/jobSelect'
 import Helmet from 'react-helmet';
 import Terms from './pages/termsheet'
 import Tasks from './pages/tasks'
+import './App.css';
 
 
 import 'bootstrap/dist/css/bootstrap.min.css';

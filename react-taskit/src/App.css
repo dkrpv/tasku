@@ -46,8 +46,26 @@
 }
 
 .noGradBut{
-    height: 9vh;
-    background-image: linear-gradient(to right, #131421 0%, #131421, #131421 100%);
+	/*outline btn*/
+	line-height: 30px;
+	text-align: left;
+	width: 176px;
+	height: 56px;
+	border: #ffffff 1px;
+	background: transparent;
+	border: 1px solid #fff;
+}
+.noGradBut, .noGradBut: hover, .noGradBut: active, .noGradBut: focus{
+	/*outline btn*/
+	line-height: 30px;
+	width: 176px;
+	height: 56px;
+	border: #ffffff 1px;
+	background: transparent;
+	border: 1px solid #fff;
+}
+.noGradBut b .gradBut b {
+	text-align: center;
 }
 
 .mainH5 {
