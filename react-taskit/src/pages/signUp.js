@@ -29,6 +29,8 @@ const FadeIn = styled.div`animation: 2s ${keyframes`${fadeIn}`}`;
 const App = ({ setPage, user, signOut, signInWithGoogle }) => {
       const [userName, setUserName] = useLocalState('userName');
       const [userPhoto, setUserPhoto] = useLocalState('userPhoto');
+      const [isLoggedIn, setLoggedIn] = useState(false)
+
       const uiConfig = {
         signInFlow: "popup",
         signInOptions: [
@@ -39,6 +41,13 @@ const App = ({ setPage, user, signOut, signInWithGoogle }) => {
           signInSuccess: () => false
         }
       }
+
+      useEffect(() => {
+        firebase.auth().onAuthStateChanged(user => {
+          setLoggedIn(!!user)
+          console.log(isLoggedIn)
+        })
+      })
 
       return (
         <div className="App">
@@ -67,42 +76,26 @@ const App = ({ setPage, user, signOut, signInWithGoogle }) => {
         >
         <Alert.Heading>Sign Up</Alert.Heading>
         <hr />
-        {
-            user
-                ? <p>Hello, {user.displayName}</p>
-                : <p className="mb-0">
-                Before signing up, please read our <Alert.Link>Terms And Conditions</Alert.Link>.
-                </p>
-        }
-        <br></br>
+        {isLoggedIn ? (
+          <div>
+          <p>Hello, {firebase.auth().currentUser.displayName}</p>
+          <Avatar source={firebase.auth().currentUser.photoURL}></Avatar>
+          <Button onClick={() => firebase.auth().signOut()}>Sign out!</Button>
+          <Button className="googleButton" id="nextButton" variant="success" onClick={() => setPage('profile')}>
+          Next
+        </Button>
+          </div>
+        ) : (
+        <div>
+        <p className="mb-0">
+          Before signing up, please read our <Alert.Link>Terms And Conditions</Alert.Link>.
+        </p>
         <StyledFirebaseAuth
           uiConfig={uiConfig}
           firebaseAuth={firebase.auth()}
         />
-        {
-            user
-                ? <Button variant="success" onClick={firebase.auth().signOut()}>Sign out</Button>
-                : <GoogleButton className="googleButton" onClick={signInWithGoogle}>Sign in with Google</GoogleButton>
-        }
-        <br></br>
-        {
-            user
-                ? <Avatar source={user.photoURL}></Avatar>
-                : <p></p>
-        }
-        {
-            user
-                ? <Button variant="success" onClick={() => setUserName(user.displayName)}>Set User</Button>
-                : <p></p>
-        }
-        {
-            user
-                ? <Button variant="success" onClick={() => setUserPhoto(user.photoURL)}>Set Photo</Button>
-                : <p></p>
-        }
-        <Button className="googleButton" id="nextButton" variant="success" onClick={() => setPage('profile')}>
-          Next
-        </Button>
+        </div>
+        )}
         </Alert>
         </FadeIn>
         </div>
