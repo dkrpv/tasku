@@ -6,6 +6,8 @@ import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 import styled, { keyframes } from 'styled-components';
 import { fadeIn } from 'react-animations';
+import * as firebase from 'firebase/app';
+import 'firebase/auth';
 
 //* Function for handling local storage
 import {useLocalState} from './hooks';
@@ -36,7 +38,7 @@ const Profile = ({ setPage }) => {
         top: '20vh'
       }}
   >
-      <h1 className="grad"><b>{ userName }</b></h1>
+      <h1 className="grad"><b>{firebase.auth().currentUser.displayName}</b></h1>
       <p>
         Reputation: { repCount }
       </p>
