@@ -62,21 +62,18 @@ class Tasks extends React.Component {
                                             {tasks.title}
                                         </Typography>
                                         <Typography>
-                                            category: {tasks.category}
+                                            Category: {tasks.category}
                                         </Typography>
                                         <Typography>
-                                            offer: {tasks.offer}€
+                                            Offer: {tasks.offer}€
                                         </Typography>
                                         <Typography>
-                                            city: {tasks.city}
+                                            City: {tasks.city}
                                         </Typography>
                                         <Typography>
-                                            address: {tasks.address}
+                                            Address: {tasks.address}
                                         </Typography>
-                                        <Typography variant="body2" component="p">
-                                            Description
                                         <br />
-                                        </Typography>
                                     </CardContent>
                                     <CardActions>
                                     <Button size="small">Show on map</Button>
@@ -84,6 +81,9 @@ class Tasks extends React.Component {
                                 </Card>
                                 <br></br>
                             </div>
+                            <Card style={{ width: '20rem', padding: '10px' }}>
+                            <p>{tasks.description}</p>
+                            </Card>
                             </Jumbotron>
                             </FadeIn>
                         )

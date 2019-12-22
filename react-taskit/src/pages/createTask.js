@@ -30,7 +30,8 @@ class createTask extends React.Component {
      city: "",
      offer: "",
      title: "",
-     date: ""
+     date: "",
+     description: ""
     };
   }
   
@@ -53,6 +54,7 @@ class createTask extends React.Component {
         offer: this.state.offer,
         title: this.state.title,
         date: date,
+        description: this.state.description,
     });  
     this.setState({
       address: "",
@@ -60,7 +62,8 @@ class createTask extends React.Component {
       city: "",
       offer: "",
       title: "",
-      date: ""
+      date: "",
+      description: ""
     });
   };
   render() {
@@ -69,8 +72,8 @@ class createTask extends React.Component {
   <FadeIn>
   <div
       style={{
-        position: 'absolute', left: '50%', top: '50%',
-        transform: 'translate(-50%, -50%)'
+        position: 'absolute', left: '50%', top: '80%',
+        transform: 'translate(-50%, -80%)'
       }}
     >
     <Form>
@@ -106,6 +109,11 @@ class createTask extends React.Component {
     <Form.Group controlId="formAdress">
       <Form.Label className="formText">Address</Form.Label>
       <Form.Control type="text" name="address" placeholder="20 W 34th St" onChange={this.updateInput} value={this.state.address}/>
+    </Form.Group>
+
+    <Form.Group controlId="formDescription">
+      <Form.Label className="formText">Description</Form.Label>
+      <Form.Control as="textarea" rows="2" type="text" name="description" placeholder="Walk my dog please" onChange={this.updateInput} value={this.state.description}/>
     </Form.Group>
 
     <Form.Group id="formTermBox">
