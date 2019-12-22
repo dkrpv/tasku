@@ -12,6 +12,8 @@ import * as firebase from 'firebase/app';
 import { Checkbox } from '@material-ui/core';
 import { green } from '@material-ui/core/colors';
 import Geocode from "react-geocode";
+import { withStyles } from '@material-ui/core/styles';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
 
 //* Firebase imports
 import { auth, db } from './firebaseConfig'
@@ -19,6 +21,16 @@ import { auth, db } from './firebaseConfig'
 const FadeIn = styled.div`animation: 2s ${keyframes`${fadeIn}`}`;
 var today = new Date();
 var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+
+const GreenCheckbox = withStyles({
+  root: {
+    color: green[400],
+    '&$checked': {
+      color: green[600],
+    },
+  },
+  checked: {},
+})(props => <Checkbox color="default" {...props} />);
 
 class createTask extends React.Component {
   
@@ -116,9 +128,15 @@ class createTask extends React.Component {
       <Form.Control as="textarea" rows="2" type="text" name="description" placeholder="Walk my dog please" onChange={this.updateInput} value={this.state.description}/>
     </Form.Group>
 
-    <Form.Group id="formTermBox">
-    <Checkbox/>
-    </Form.Group>
+    <FormControlLabel
+        control={
+          <GreenCheckbox
+            value="termsAgreed"
+          />
+        }
+        label="I accept the Terms and Conditions"
+      />
+      <br />
 
     <Button className="gradBut" type="submit" onClick={this.addTask}>
       <b>Create</b>
