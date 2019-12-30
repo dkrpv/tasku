@@ -15,25 +15,34 @@ import Helmet from 'react-helmet';
 import Terms from './pages/termsheet'
 import Tasks from './pages/tasks'
 import './App.css';
+import * as firebase from 'firebase/app';
+import 'firebase/auth';
 
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 //* Material UI Avatar
-import Avatar from './pages/avatar'
+import Avatar from '@material-ui/core/Avatar';
 
 //* Function for handling local storage
 import {useLocalState} from './pages/hooks'
 
 const App = () => {
   const [page, setPage] = useState('main');
-  const [userName, setUserName] = useLocalState('userName');
-  const [userPhoto, setUserPhoto] = useLocalState('userPhoto');
+
+  var usrName = ""
+  if (firebase.auth().currentUser !== null) {
+    usrName = firebase.auth().currentUser.displayName;
+  }
+  else {
+    usrName = ""
+  }
   var signIn = "Sign In";
   var signUp = "Join TaskU";
-  if (userName) {
+  if (usrName !== "") {
     signIn = "";
     signUp = "Sign Out";
+    var firstLetter = usrName.charAt(0);
   }
 
   return (
@@ -49,8 +58,8 @@ const App = () => {
       </Nav>
       <Nav className="ml-auto">
       <Button variant="dark" onClick={() => setPage('signUp')}>{ signUp }</Button>
-      <Nav.Link className="profileNavLink" onClick={() => setPage('profile')}>{ userName }</Nav.Link>
-      <Avatar source={userPhoto}></Avatar>
+      <Nav.Link className="profileNavLink" onClick={() => setPage('profile')}>{ usrName }</Nav.Link>
+      <Avatar>{ firstLetter }</Avatar>
       </Nav>
     </Navbar>
     {page === 'main' && <Main setPage={setPage} />}
