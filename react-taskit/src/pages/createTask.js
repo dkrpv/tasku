@@ -16,10 +16,18 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 
 //* Firebase imports
 import { auth, db } from './firebaseConfig'
+import 'firebase/auth';
 
 const FadeIn = styled.div`animation: 2s ${keyframes`${fadeIn}`}`;
 var today = new Date();
 var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+var usrName = "";
+if (firebase.auth().currentUser !== null) {
+  usrName = firebase.auth().currentUser.displayName;
+}
+else {
+
+}
 
 var key = Math.floor(Math.random() * 10000000000);
 
@@ -32,6 +40,7 @@ const GreenCheckbox = withStyles({
 
 class createTask extends React.Component {
   
+  
   constructor() {
     super();
     this.state = {
@@ -42,7 +51,8 @@ class createTask extends React.Component {
      title: "",
      date: "",
      description: "",
-     key: ""
+     key: "",
+     usrName: "" 
     };
   }
   
@@ -67,6 +77,7 @@ class createTask extends React.Component {
         date: date,
         description: this.state.description,
         key: key,
+        usrName: usrName,
     });  
     this.setState({
       address: "",
@@ -76,9 +87,11 @@ class createTask extends React.Component {
       title: "",
       date: "",
       description: "",
-      key: ""
+      key: "",
+      usrName: ""
     });
   };
+  
   render() {
     return (
   <div className="createTask">

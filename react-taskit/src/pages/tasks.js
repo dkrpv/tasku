@@ -73,6 +73,9 @@ class Tasks extends React.Component {
                                         <Typography>
                                             Address: {tasks.address}
                                         </Typography>
+                                        <Typography>
+                                            Posted by: {tasks.usrName}
+                                        </Typography>
                                         <br />
                                     </CardContent>
                                     <CardActions>
