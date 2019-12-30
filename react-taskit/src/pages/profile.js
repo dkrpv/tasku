@@ -18,9 +18,17 @@ import Avatar from './avatar'
 var repCount = 0;
 const FadeIn = styled.div`animation: 2s ${keyframes`${fadeIn}`}`;
 
+var usrName = "";
+
 const Profile = ({ setPage }) => {
   const [userName, setUserName] = useLocalState('userName');
   const [userPhoto, setUserPhoto] = useLocalState('userPhoto');
+  if (firebase.auth().currentUser !== null) {
+    usrName = firebase.auth().currentUser.displayName;
+  }
+  else {
+    setPage("signUp")
+  }
   return (
   <div className="profile">
   <FadeIn>
@@ -38,7 +46,7 @@ const Profile = ({ setPage }) => {
         top: '20vh'
       }}
   >
-      <h1 className="grad"><b>{firebase.auth().currentUser.displayName}</b></h1>
+      <h1 className="grad"><b>{usrName}</b></h1>
       <p>
         Reputation: { repCount }
       </p>
