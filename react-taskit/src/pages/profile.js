@@ -21,8 +21,6 @@ const FadeIn = styled.div`animation: 2s ${keyframes`${fadeIn}`}`;
 var usrName = "";
 
 const Profile = ({ setPage }) => {
-  const [userName, setUserName] = useLocalState('userName');
-  const [userPhoto, setUserPhoto] = useLocalState('userPhoto');
   if (firebase.auth().currentUser !== null) {
     usrName = firebase.auth().currentUser.displayName;
   }
