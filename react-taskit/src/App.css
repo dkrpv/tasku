@@ -130,3 +130,7 @@
   width: 20px;
   height: 20px;
 }
+
+.taskCount {
+  color: #000000 !important;
+}

@@ -8,6 +8,7 @@ import styled, { keyframes } from 'styled-components';
 //* Material Ui imports
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
+import Badge from 'react-bootstrap/Badge'
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
@@ -17,6 +18,7 @@ import Typography from '@material-ui/core/Typography';
 import { auth,db } from './firebaseConfig'
 
 const FadeIn = styled.div`animation: 2s ${keyframes`${fadeIn}`}`;
+var taskCount = 0;
 
 class Tasks extends React.Component {
     state = {
@@ -30,6 +32,7 @@ class Tasks extends React.Component {
             .then( snapshot => {
                 const tasks = []
                 snapshot.forEach( doc => {
+                    taskCount += 1;
                     const data = doc.data()
                     tasks.push(data)
                 })
@@ -40,6 +43,7 @@ class Tasks extends React.Component {
     }
 
     render(){
+        var taskText = <p className="taskCount">{ taskCount }</p>;
         return (
             <FadeIn>
             <br></br>
@@ -47,7 +51,7 @@ class Tasks extends React.Component {
                 paddingLeft: '30px',
                 paddingRight: '30px'
             }}>
-                <h1 class="mainH1" class="grad">Tasks in your area</h1>
+            <h1 class="mainH1" class="grad">Tasks in your area <Badge>{ taskText }</Badge></h1>
                 <br></br>
                 {
                     this.state.tasks &&
