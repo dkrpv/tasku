@@ -145,3 +145,18 @@
 .taskCount {
   color: #000000 !important;
 }
+
+.userName {
+  position: absolute;
+  left: '0%';
+  top: '-50%',
+}
+
+.icons {
+  text-align: center;
+}
+
+.facebookIcon {
+  display: inline-block;
+  text-align: justify;
+}

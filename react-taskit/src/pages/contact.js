@@ -12,6 +12,7 @@ import * as firebase from 'firebase/app';
 import { Checkbox } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Helmet from 'react-helmet';
 
 //* Firebase imports
 import { auth, db } from './firebaseConfig'
@@ -19,12 +20,17 @@ import 'firebase/auth';
 import { firebaseUser } from './signUp'
 
 //* Material UI imports
+import Avatar from '@material-ui/core/Avatar';
 import PersonIcon from '@material-ui/icons/Person';
 import EmailIcon from '@material-ui/icons/Email';
 import LocalOfferIcon from '@material-ui/icons/LocalOffer';
 import ChatBubbleIcon from '@material-ui/icons/ChatBubble';
 import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
 import RemoveIcon from '@material-ui/icons/Remove';
+import FacebookIcon from '@material-ui/icons/Facebook';
+import InstagramIcon from '@material-ui/icons/Instagram';
+import TwitterIcon from '@material-ui/icons/Twitter';
+import LinkedInIcon from '@material-ui/icons/LinkedIn';
 
 const FadeIn = styled.div`animation: 2s ${keyframes`${fadeIn}`}`;
 var today = new Date();
@@ -109,6 +115,7 @@ class createContact extends React.Component {
   render() {
     return (
   <div className="createTask">
+  <Helmet bodyAttributes={{style: 'background-color : #333333'}}/>
   <FadeIn>
   <div
       style={{
@@ -206,6 +213,24 @@ class createContact extends React.Component {
     </Button>
     </Form>
   </div>
+    <div className="icons" style={{
+        position: 'absolute', left: '5%', top: '85%',
+        transform: 'translate(-5%, -85%)'
+      }}
+      >
+    <div className="facebookIcon">
+    <a href="https://fi-fi.facebook.com/"><Avatar className="facebookIcon"><FacebookIcon></FacebookIcon></Avatar></a>
+    </div>
+    <div className="facebookIcon">
+    <a href="https://www.instagram.com/?hl=fi"><Avatar className="InstagramIcon"><InstagramIcon></InstagramIcon></Avatar></a>
+    </div>
+    <div className="facebookIcon">
+    <a href="https://twitter.com/home?lang=fi"><Avatar className="TwitterIcon"><TwitterIcon></TwitterIcon></Avatar></a>
+    </div>
+    <div className="facebookIcon">
+    <a href="https://www.linkedin.com/"><Avatar className="LinkedInIcon"><LinkedInIcon></LinkedInIcon></Avatar></a>
+    </div>
+    </div>
   </FadeIn>
   </div>
   );
