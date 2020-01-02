@@ -44,8 +44,6 @@ const GreenCheckbox = withStyles({
   checked: {},
 })(props => <Checkbox color="default" {...props} />);
 
-var lati = ""
-var longi = ""
 
 Geocode.setApiKey("AIzaSyDwtqxamzXJf8dV21Gy5IWYKUufoUaojkA");
 function getLatitude(address) {
@@ -53,11 +51,7 @@ function getLatitude(address) {
       response => {
           const {lat} = response.results[0].geometry.location;
           console.log(lat)
-          lati=lat
-          this.setState({
-            latitude: lati
-          })
-          console.log(lati)
+          return lat
           
       },
       error => {
@@ -72,11 +66,7 @@ function getLongitude(address) {
       response => {
           const {lng} = response.results[0].geometry.location;
           console.log(lng)
-          longi=lng
-          this.setState({
-            longitude: longi
-          })
-          console.log(longi)
+          return lng
       },
       error => {
           console.log(error);
@@ -106,8 +96,8 @@ class createTask extends React.Component {
   
   setLocation() {
     this.setState({
-      latitude: getLatitude(this.state.latitude),
-      longitude: getLongitude(this.state.longitude)
+      latitude: getLatitude(this.state.address),
+      longitude: getLongitude(this.state.address)
     })
   }
 
@@ -182,7 +172,7 @@ class createTask extends React.Component {
         <Form.Group as={Col} controlId="formCategory">
           <Form.Label className="formText">Category</Form.Label>
           <Form.Control name="category" as="select" onChange={this.updateInput} value={this.state.category}>
-            <option>...</option>
+            <option disabled>...</option>
             <option>Danila</option>
             <option>Karpov</option>
           </Form.Control>

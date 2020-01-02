@@ -27,13 +27,20 @@ const Main = ({ setPage }) => {
         transform: 'translate(-20%, -50%)'
       }}
     >
-      <h1 className="mainH1">
-        Let's make more <br />
-        time for the things <br />
-        we care about. <br />
+      <h1>
+      <span class="mainH1">Let's make more</span>
+      <br />
+      <span class="timeH1">time </span>
+      <span class="mainH1">for the things </span>
+      <br />
+      <span class="mainH1">we care about.</span>
       </h1>
-      <h5 className="mainH5">Everyone wants more free time. <br />
-      Tasku makes it easier by creating some meaningful connections
+      <h5 className="mainH5">
+      <span className="mainH5">Everyone wants more free time. </span>
+      <span className="mainH5">Tasku makes it easier</span>
+      <br />
+      <span className="mainH5">by creating some meaningful connections</span>
+      
       </h5>
       <br />
       <Button className="gradBut" onClick={() => setPage('tasks')}><b>Search for Tasks</b></Button>

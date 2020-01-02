@@ -38,6 +38,10 @@
     color: white;
 }
 
+.timeH1{
+  color: lime;
+}
+
 .gradBut{
     background-image: linear-gradient(to right, #34eba1 0%, #00ff66, #34eba1 100%);
     width: 176px;
@@ -46,6 +50,13 @@
     margin-right: 10px;
 }
 
+.gradIcon{
+  color: green;
+}
+
+.transparent{
+  background-color : #343b36; 
+}
 .noGradBut{
 	/*outline btn*/
 	line-height: 30px;
