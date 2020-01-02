@@ -17,17 +17,23 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 //* Firebase imports
 import { auth, db } from './firebaseConfig'
 import 'firebase/auth';
-
+import { firebaseUser } from './signUp'
 const FadeIn = styled.div`animation: 2s ${keyframes`${fadeIn}`}`;
 var today = new Date();
 var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
 var usrName = "";
+
 if (firebase.auth().currentUser !== null) {
   usrName = firebase.auth().currentUser.displayName;
 }
 else {
-
+  usrName = ""
 }
+
+console.log(usrName)
+console.log(firebase.auth().currentUser == null)
+
+
 
 var key = Math.floor(Math.random() * 10000000000);
 
@@ -37,6 +43,46 @@ const GreenCheckbox = withStyles({
   },
   checked: {},
 })(props => <Checkbox color="default" {...props} />);
+
+var lati = ""
+var longi = ""
+
+Geocode.setApiKey("AIzaSyDwtqxamzXJf8dV21Gy5IWYKUufoUaojkA");
+function getLatitude(address) {
+  Geocode.fromAddress(address).then(
+      response => {
+          const {lat} = response.results[0].geometry.location;
+          console.log(lat)
+          lati=lat
+          this.setState({
+            latitude: lati
+          })
+          console.log(lati)
+          
+      },
+      error => {
+          console.log(error);
+      }
+  )
+}
+
+
+function getLongitude(address) {
+  Geocode.fromAddress(address).then(
+      response => {
+          const {lng} = response.results[0].geometry.location;
+          console.log(lng)
+          longi=lng
+          this.setState({
+            longitude: longi
+          })
+          console.log(longi)
+      },
+      error => {
+          console.log(error);
+      }
+  )
+}
 
 class createTask extends React.Component {
   
@@ -52,23 +98,34 @@ class createTask extends React.Component {
      date: "",
      description: "",
      key: "",
-     usrName: "" 
+     usrName: "",
+     latitude: "",
+     longitude: ""
     };
   }
   
+  setLocation() {
+    this.setState({
+      latitude: getLatitude(this.state.latitude),
+      longitude: getLongitude(this.state.longitude)
+    })
+  }
+
   updateInput = e => {
     this.setState({
       [e.target.name]: e.target.value
     });
   }
   
-
   addTask = e => {
+    this.setLocation()
     e.preventDefault();
     db.settings({
         timestampsInSnapshots: true
     });
+
     const taskRef = db.collection("tasks").add({
+        
         address: this.state.address,
         category: this.state.category,
         city: this.state.city,
@@ -78,6 +135,8 @@ class createTask extends React.Component {
         description: this.state.description,
         key: key,
         usrName: usrName,
+        latitude: this.state.latitude,
+        longitude: this.state.longitude,
     });  
     this.setState({
       address: "",
@@ -88,9 +147,12 @@ class createTask extends React.Component {
       date: "",
       description: "",
       key: "",
-      usrName: ""
+      usrName: "",
+      latitude: "",
+      longitude: ""
     });
   };
+  
   
   render() {
     return (

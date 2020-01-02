@@ -14,6 +14,8 @@ import JobSelect from './pages/jobSelect'
 import Helmet from 'react-helmet';
 import Terms from './pages/termsheet'
 import Tasks from './pages/tasks'
+import ResetPassword from './pages/resetPassword'
+import Test from './pages/mapPage'
 import './App.css';
 import * as firebase from 'firebase/app';
 import 'firebase/auth';
@@ -54,7 +56,7 @@ const App = () => {
       <Nav.Link className="grad" onClick={() => setPage('main')}><b>Home</b></Nav.Link>
       <Nav.Link onClick={() => setPage('profile')}>Profile</Nav.Link>
       <Nav.Link onClick={() => setPage('myTask')}>My Tasks</Nav.Link>
-      <Nav.Link onClick={() => setPage('mapPage')}>Map</Nav.Link>
+      <Nav.Link onClick={() => setPage('test')}>Map</Nav.Link>
       </Nav>
       <Nav className="ml-auto">
       <Button variant="dark" onClick={() => setPage('signUp')}>{ signUp }</Button>
@@ -73,6 +75,8 @@ const App = () => {
     {page === 'jobSelect' && <JobSelect setPage={setPage} />}
     {page === 'termsheet' && <Terms setPage={setPage} />}
     {page === 'tasks' && <Tasks setPage={setPage} />}
+    {page === 'resetPassword' && <ResetPassword setPage={setPage} />}
+    {page === 'test' && <Test setPage={setPage} />}
     </div>
   );
 }

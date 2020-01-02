@@ -99,6 +99,11 @@ const App = ({ setPage, user, signOut, signInWithGoogle }) => {
           uiConfig={uiConfig}
           firebaseAuth={firebase.auth()}
         />
+        <div>
+        <p className="mb-0">
+          <Alert.Link onClick={() => setPage('resetPassword')}>Forgot Password?</Alert.Link>.
+        </p>
+        </div>
         </div>
         )}
         </Alert>
@@ -113,6 +118,8 @@ const App = ({ setPage, user, signOut, signInWithGoogle }) => {
   const providers = {
     googleProvider: new firebase.auth.GoogleAuthProvider(),
   };
+
+  export const firebaseUser = firebase.auth().currentUser
   
   export default withFirebaseAuth({
     providers,
