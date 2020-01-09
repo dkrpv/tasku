@@ -1,21 +1,16 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Form from 'react-bootstrap/Form';
-import Col from 'react-bootstrap/Col';
-import InputGroup from 'react-bootstrap/InputGroup';
 import Button from 'react-bootstrap/Button';
 import styled, { keyframes } from 'styled-components';
 import { fadeIn } from 'react-animations';
 import 'firebase/firestore';
-import firebaseConfig from './firebaseConfig';
 import * as firebase from 'firebase/app';
 import { Checkbox } from '@material-ui/core';
-import Geocode from "react-geocode";
 import { withStyles } from '@material-ui/core/styles';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
 
 //* Firebase imports
-import { auth, db } from './firebaseConfig'
+import { db } from './firebaseConfig'
 import 'firebase/auth';
 
 const FadeIn = styled.div`animation: 2s ${keyframes`${fadeIn}`}`;

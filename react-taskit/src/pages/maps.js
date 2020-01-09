@@ -7,7 +7,6 @@ import Map from './map'
 import Geocode from "react-geocode";
 import 'firebase/firestore';
 import firebaseConfig from './firebaseConfig';
-import { Component } from "react";
 import ReactMapGL, { Marker, Popup } from "react-map-gl"
 import LocationOnIcon from '@material-ui/icons/LocationOn';
 

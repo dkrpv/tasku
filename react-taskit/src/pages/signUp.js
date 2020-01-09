@@ -1,10 +1,8 @@
-import React, { Component, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import withFirebaseAuth from 'react-with-firebase-auth'
 import * as firebase from 'firebase/app';
 import 'firebase/auth';
 import '.././App.css';
-import firebaseConfig from './firebaseConfig';
-import GoogleButton from 'react-google-button'
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth'
 
 import Alert from 'react-bootstrap/Alert';
@@ -21,7 +19,7 @@ import { Button } from 'react-bootstrap';
 import { useLocalState } from './hooks';
 
 //* Firebase imports
-import { auth, db } from './firebaseConfig'
+import { auth } from './firebaseConfig'
 
 const FadeIn = styled.div`animation: 2s ${keyframes`${fadeIn}`}`;
 
@@ -31,7 +29,7 @@ const App = ({ setPage, user, signOut, signInWithGoogle }) => {
       const [userPhoto, setUserPhoto] = useLocalState('userPhoto');
       const [isLoggedIn, setLoggedIn] = useState(false)
 
-      function signOut() {
+      function signUserOut() {
         firebase.auth().signOut()
         setLoggedIn(false)
       }
@@ -85,7 +83,7 @@ const App = ({ setPage, user, signOut, signInWithGoogle }) => {
           <div>
           <p>Hello, {firebase.auth().currentUser.displayName}</p>
           <Avatar source={firebase.auth().currentUser.photoURL}></Avatar>
-          <Button onClick={signOut}>Sign out!</Button>
+          <Button onClick={signUserOut}>Sign out!</Button>
           <Button className="googleButton" id="nextButton" variant="success" onClick={() => setPage('profile')}>
           Next
         </Button>

@@ -27,9 +27,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 //* Material UI Avatar
 import Avatar from '@material-ui/core/Avatar';
 
-//* Function for handling local storage
-import {useLocalState} from './pages/hooks'
-
 const App = () => {
   const [page, setPage] = useState('main');
 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import Alert from 'react-bootstrap/Alert';
@@ -9,11 +9,8 @@ import { fadeIn } from 'react-animations';
 import * as firebase from 'firebase/app';
 import 'firebase/auth';
 
-//* Function for handling local storage
-import {useLocalState} from './hooks';
 
 //* Material UI Avatar
-import Avatar from './avatar'
 
 var repCount = 0;
 const FadeIn = styled.div`animation: 2s ${keyframes`${fadeIn}`}`;

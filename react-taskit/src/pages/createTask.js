@@ -7,7 +7,6 @@ import Button from 'react-bootstrap/Button';
 import styled, { keyframes } from 'styled-components';
 import { fadeIn } from 'react-animations';
 import 'firebase/firestore';
-import firebaseConfig from './firebaseConfig';
 import * as firebase from 'firebase/app';
 import { Checkbox } from '@material-ui/core';
 import Geocode from "react-geocode";
@@ -15,9 +14,8 @@ import { withStyles } from '@material-ui/core/styles';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 
 //* Firebase imports
-import { auth, db } from './firebaseConfig'
+import { db } from './firebaseConfig'
 import 'firebase/auth';
-import { firebaseUser } from './signUp'
 const FadeIn = styled.div`animation: 2s ${keyframes`${fadeIn}`}`;
 var today = new Date();
 var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
@@ -43,36 +41,10 @@ const GreenCheckbox = withStyles({
   },
   checked: {},
 })(props => <Checkbox color="default" {...props} />);
-
+var latitude = 0
+var longitude = 0
 
 Geocode.setApiKey("AIzaSyDwtqxamzXJf8dV21Gy5IWYKUufoUaojkA");
-function getLatitude(address) {
-  Geocode.fromAddress(address).then(
-      response => {
-          const {lat} = response.results[0].geometry.location;
-          console.log(lat)
-          return lat
-          
-      },
-      error => {
-          console.log(error);
-      }
-  )
-}
-
-
-function getLongitude(address) {
-  Geocode.fromAddress(address).then(
-      response => {
-          const {lng} = response.results[0].geometry.location;
-          console.log(lng)
-          return lng
-      },
-      error => {
-          console.log(error);
-      }
-  )
-}
 
 class createTask extends React.Component {
   
@@ -93,26 +65,60 @@ class createTask extends React.Component {
      longitude: ""
     };
   }
-  
-  setLocation() {
-    this.setState({
-      latitude: getLatitude(this.state.address),
-      longitude: getLongitude(this.state.address)
-    })
+
+  getLongitude(address) {
+    Geocode.fromAddress(address).then(
+        response => {
+            const {lng} = response.results[0].geometry.location;
+            console.log(lng)
+            longitude = lng
+            this.setState({
+              longitude: lng
+            })
+            console.log(longitude)
+        },
+        error => {
+            console.log(error);
+        }
+    )
   }
 
+getLatitude = (address) => {
+    Geocode.fromAddress(address).then(
+        response => {
+            const {lat} = response.results[0].geometry.location;
+            console.log(lat)
+            latitude = lat
+            this.setState({
+              latitude: lat
+            })
+            console.log(latitude)
+            console.log(this.state.latitude)
+            
+        },
+        error => {
+            console.log(error);
+        }
+    )
+  }
+
+  
+  getCoordinates = (address) => {
+    this.getLatitude(this.state.address);
+    console.log(this.state.latitude)
+    this.getLongitude(this.state.address)
+  }
+  
   updateInput = e => {
     this.setState({
       [e.target.name]: e.target.value
     });
   }
-  
+
   addTask = e => {
-    this.setLocation()
     e.preventDefault();
-    db.settings({
-        timestampsInSnapshots: true
-    });
+    this.getCoordinates();
+    console.log(this.state.latitude)
 
     const taskRef = db.collection("tasks").add({
         

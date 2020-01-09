@@ -1,12 +1,9 @@
 import React from 'react'
 import 'firebase/firestore';
-import firebaseConfig from './firebaseConfig';
-import * as firebase from 'firebase/app';
 import { fadeIn } from 'react-animations';
 import styled, { keyframes } from 'styled-components';
 
 //* Material Ui imports
-import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import Badge from 'react-bootstrap/Badge'
 import Jumbotron from 'react-bootstrap/Jumbotron';
@@ -15,7 +12,7 @@ import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 
-import { auth,db } from './firebaseConfig'
+import { db } from './firebaseConfig'
 
 const FadeIn = styled.div`animation: 2s ${keyframes`${fadeIn}`}`;
 var taskCount = 0;
