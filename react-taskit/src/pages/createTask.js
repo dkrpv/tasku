@@ -66,76 +66,57 @@ class createTask extends React.Component {
     };
   }
 
-  getLongitude(address) {
-    Geocode.fromAddress(address).then(
+updateInput = e => {
+  this.setState({
+    [e.target.name]: e.target.value
+  });
+}
+getGeocode(address) {
+      Geocode.fromAddress(address).then(
         response => {
-            const {lng} = response.results[0].geometry.location;
-            console.log(lng)
-            longitude = lng
-            this.setState({ longitude: lng }, () => {
-              console.log(this.state.longitude);
+          const { lat, lng } = response.results[0].geometry.location;
+
+          this.setState({ 
+            latitude: lat,
+            longitude: lng
+          }, () => {
+            const taskRef = db.collection("tasks").add({
+              longitude: this.state.longitude,
+              latitude: this.state.latitude
             });
-            console.log(longitude)
+          });
         },
         error => {
-            console.log(error);
+          console.error(error);
         }
-    )
-  }
-
-getLatitude = (address) => {
-    Geocode.fromAddress(address).then(
-        response => {
-            const {lat} = response.results[0].geometry.location;
-            console.log(lat)
-            latitude = lat
-            this.setState({ latitude: lat }, () => {
-              const taskRef = db.collection("tasks").add({
-                latitude: this.state.latitude
-              });
-            });
-            console.log(latitude)
-            console.log(this.state.latitude)
-            
-        },
-        error => {
-            console.log(error);
-        }
-    )
-
-    } 
+      );
+    }
 
   
   getCoordinates = (address) => {
-    this.getLatitude(this.state.address);
-    console.log(this.state.latitude);
-    this.getLongitude(this.state.address);
+    this.getGeocode(this.state.address);
   }
   
-  updateInput = e => {
-    this.setState({
-      [e.target.name]: e.target.value
-    });
-  }
 
   addTask = e => {
     e.preventDefault();
     this.getCoordinates();
     console.log(this.state.latitude)
-
+    
     const taskRef = db.collection("tasks").add({
-        
-        address: this.state.address,
-        category: this.state.category,
-        city: this.state.city,
-        offer: this.state.offer,
-        title: this.state.title,
-        date: date,
-        description: this.state.description,
-        key: key,
-        usrName: usrName,
-        longitude: this.state.longitude,
-    });  
+      address: this.state.address,
+      category: this.state.category,
+      city: this.state.city,
+      offer: this.state.offer,
+      title: this.state.title,
+      date: date,
+      description: this.state.description,
+      key: key,
+      usrName: usrName,
+      longitude: this.state.longitude,
+      latitude: this.state.latitude
+    });
+
     this.setState({
       address: "",
       category: "",
