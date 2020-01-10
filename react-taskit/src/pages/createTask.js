@@ -72,9 +72,9 @@ class createTask extends React.Component {
             const {lng} = response.results[0].geometry.location;
             console.log(lng)
             longitude = lng
-            this.setState({
-              longitude: lng
-            })
+            this.setState({ longitude: lng }, () => {
+              console.log(this.state.longitude);
+            });
             console.log(longitude)
         },
         error => {
@@ -89,9 +89,11 @@ getLatitude = (address) => {
             const {lat} = response.results[0].geometry.location;
             console.log(lat)
             latitude = lat
-            this.setState({
-              latitude: lat
-            })
+            this.setState({ latitude: lat }, () => {
+              const taskRef = db.collection("tasks").add({
+                latitude: this.state.latitude
+              });
+            });
             console.log(latitude)
             console.log(this.state.latitude)
             
@@ -100,13 +102,14 @@ getLatitude = (address) => {
             console.log(error);
         }
     )
-  }
+
+    } 
 
   
   getCoordinates = (address) => {
     this.getLatitude(this.state.address);
-    console.log(this.state.latitude)
-    this.getLongitude(this.state.address)
+    console.log(this.state.latitude);
+    this.getLongitude(this.state.address);
   }
   
   updateInput = e => {
@@ -131,7 +134,6 @@ getLatitude = (address) => {
         description: this.state.description,
         key: key,
         usrName: usrName,
-        latitude: this.state.latitude,
         longitude: this.state.longitude,
     });  
     this.setState({
