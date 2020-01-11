@@ -83,7 +83,7 @@ const App = ({ setPage, user, signOut, signInWithGoogle }) => {
           <div>
           <p>Hello, {firebase.auth().currentUser.displayName}</p>
           <Avatar source={firebase.auth().currentUser.photoURL}></Avatar>
-          <Button onClick={signUserOut}>Sign out!</Button>
+          <Button id="nextButton" onClick={signUserOut}>Sign out!</Button>
           <Button className="googleButton" id="nextButton" variant="success" onClick={() => setPage('profile')}>
           Next
         </Button>

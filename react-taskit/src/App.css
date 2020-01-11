@@ -25,7 +25,9 @@
 }
 
 #nextButton {
-    margin-top:175px;
+    margin-top: 50px;
+    margin-right: 20px;
+    padding: 10px;
 }
 
 .grad {
