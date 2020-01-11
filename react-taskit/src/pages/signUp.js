@@ -21,12 +21,10 @@ import { useLocalState } from './hooks';
 //* Firebase imports
 import { auth } from './firebaseConfig'
 
-const FadeIn = styled.div`animation: 2s ${keyframes`${fadeIn}`}`;
+const FadeIn = styled.div `animation: 2s ${keyframes`${fadeIn}`}`;
 
 
 const App = ({ setPage, user, signOut, signInWithGoogle }) => {
-      const [userName, setUserName] = useLocalState('userName');
-      const [userPhoto, setUserPhoto] = useLocalState('userPhoto');
       const [isLoggedIn, setLoggedIn] = useState(false)
 
       function signUserOut() {
