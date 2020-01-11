@@ -23,7 +23,7 @@ const Main = ({ setPage }) => {
       <h1>
       <span className="mainH1">Let's make more</span>
       <br />
-      <span className="timeH1">time </span>
+      <span className="grad">time </span>
       <span className="mainH1">for the things </span>
       <br />
       <span className="mainH1">we care about.</span>
