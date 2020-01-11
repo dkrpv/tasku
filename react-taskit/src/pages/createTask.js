@@ -184,7 +184,7 @@ getGeocode(address) {
       <Form.Control as="textarea" rows="2" type="text" name="description" placeholder="Walk my dog please" onChange={this.updateInput} value={this.state.description}/>
     </Form.Group>
 
-    <FormControlLabel
+    <FormControlLabel className="white"
         control={
           <GreenCheckbox
             value="termsAgreed"

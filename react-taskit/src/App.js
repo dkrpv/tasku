@@ -28,22 +28,21 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Avatar from '@material-ui/core/Avatar';
 
 const App = () => {
-  const [page, setPage] = useState('main');
+        const [page, setPage] = useState('main');
 
-  var usrName = ""
-  if (firebase.auth().currentUser !== null) {
-    usrName = firebase.auth().currentUser.displayName;
-  }
-  else {
-    usrName = ""
-  }
-  var signIn = "Sign In";
-  var signUp = "Join TaskU";
-  if (usrName !== "") {
-    signIn = "";
-    signUp = "Sign Out";
-    var firstLetter = usrName.charAt(0);
-  }
+        var usrName = ""
+        if (firebase.auth().currentUser !== null) {
+            usrName = firebase.auth().currentUser.displayName;
+        } else {
+            usrName = ""
+        }
+        var signIn = "Sign In";
+        var signUp = "Join TaskU";
+        if (usrName !== "") {
+            signIn = "";
+            signUp = "Sign Out";
+            var firstLetter = usrName.charAt(0);
+        }
 
   return (
     <div className="App">
@@ -81,4 +80,4 @@ const App = () => {
   );
 }
 
-export default App;
+                                                                export default App;
