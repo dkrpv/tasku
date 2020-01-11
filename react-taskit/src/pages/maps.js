@@ -54,7 +54,11 @@ function getLongitude(address) {
         response => {
             const { lng } = response.results[0].geometry.location;
             console.log(lng)
-            return lng
+            if (lng) {
+                return lng
+            } else {
+
+            }
         },
         error => {
             console.log(error);
