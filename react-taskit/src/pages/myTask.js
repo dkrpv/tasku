@@ -4,7 +4,7 @@ import Alert from 'react-bootstrap/Alert';
 import styled, { keyframes } from 'styled-components';
 import { fadeIn } from 'react-animations';
 
-const FadeIn = styled.div`animation: 2s ${keyframes`${fadeIn}`}`;
+const FadeIn = styled.div `animation: 2s ${keyframes`${fadeIn}`}`;
 
 const MyTask = ({ setPage }) => {
     return(

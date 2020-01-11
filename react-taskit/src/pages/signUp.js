@@ -16,7 +16,6 @@ import Avatar from './avatar'
 
 //* Material UI imports
 import { Button } from 'react-bootstrap';
-import { useLocalState } from './hooks';
 
 //* Firebase imports
 import { auth } from './firebaseConfig'
