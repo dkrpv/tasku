@@ -16,7 +16,7 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 //* Firebase imports
 import { db } from './firebaseConfig'
 import 'firebase/auth';
-const FadeIn = styled.div`animation: 2s ${keyframes`${fadeIn}`}`;
+const FadeIn = styled.div `animation: 2s ${keyframes`${fadeIn}`}`;
 var today = new Date();
 var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
 var usrName = "";
@@ -79,12 +79,13 @@ getGeocode(address) {
           this.setState({ 
             latitude: lat,
             longitude: lng
-          }, () => {
-            const taskRef = db.collection("tasks").add({
-              longitude: this.state.longitude,
-              latitude: this.state.latitude
-            });
+          })
+
+          const taskRef = db.collection("tasks").add({
+            longitude: this.state.longitude,
+            latitude: this.state.latitude
           });
+          console.log(this.state.latitude);
         },
         error => {
           console.error(error);

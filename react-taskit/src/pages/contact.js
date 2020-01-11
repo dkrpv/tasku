@@ -111,12 +111,12 @@ class createContact extends React.Component {
   render() {
     return (
   <div className="createTask">
-  <Helmet bodyAttributes={{style: 'background-color : #333333'}}/>
+  <Helmet/>
   <FadeIn>
   <div
       style={{
-        position: 'absolute', left: '10%', top: '60%',
-        transform: 'translate(-10%, -60%)'
+        position: 'absolute', left: '10%', top: '80%',
+        transform: 'translate(-10%, -80%)'
       }}
     >
     
@@ -210,8 +210,8 @@ class createContact extends React.Component {
     </Form>
   </div>
     <div className="icons" style={{
-        position: 'absolute', left: '5%', top: '85%',
-        transform: 'translate(-5%, -85%)'
+        position: 'absolute', left: '5%', top: '100%',
+        transform: 'translate(-5%, -100%)'
       }}
       >
     <div className="facebookIcon">

@@ -23,7 +23,7 @@ import { useLocalState } from './hooks';
 //* Firebase imports
 import { auth, db } from './firebaseConfig'
 
-const FadeIn = styled.div`animation: 2s ${keyframes`${fadeIn}`}`;
+const FadeIn = styled.div `animation: 2s ${keyframes`${fadeIn}`}`;
 
 
 const App = ({ setPage, user, signOut, signInWithGoogle }) => {
