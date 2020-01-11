@@ -1,11 +1,4 @@
-.downArrow{
-    position: fixed;
-    left: 50%;
-    bottom: 20px;
-    transform: translate(-50%, -50%);
-    margin: 0 auto;
-}
-.Map{
+.downArrow {
     position: fixed;
     left: 50%;
     bottom: 20px;
@@ -13,15 +6,21 @@
     margin: 0 auto;
 }
 
-
-.newLayer{
-    margin-top:10px;
+.Map {
+    position: fixed;
+    left: 50%;
+    bottom: 20px;
+    transform: translate(-50%, -50%);
+    margin: 0 auto;
 }
 
+.newLayer {
+    margin-top: 10px;
+}
 
-.jobs{
-    margin-top:75px;
-    text-align:center;
+.jobs {
+    margin-top: 75px;
+    text-align: center;
 }
 
 #nextButton {
@@ -31,62 +30,68 @@
 }
 
 .grad {
-    background: -webkit-linear-gradient(#34eba1, #00ff66);
+    background: -webkit-linear-gradient(#34eba1, #01913b);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
-.mainH1{
+.mainH1 {
     color: white;
 }
 
-.timeH1{
-  color: lime;
+.timeH1 {
+    color: lime;
 }
 
-.gradBut{
-    background-image: linear-gradient(to right, #34eba1 0%, #00ff66, #34eba1 100%);
+.gradBut {
+    background-image: linear-gradient(to right, #01913b 0%, #32d975, #01913b 100%);
     width: 176px;
-	height: 56px;
+    height: 56px;
     border: none;
     margin-right: 10px;
 }
 
-.gradIcon{
-  color: green;
+.gradIcon {
+    color: green;
 }
 
-.transparent{
-  background-color : #343b36; 
+.transparent {
+    background-color: #343b36;
 }
-.noGradBut{
-	/*outline btn*/
-	line-height: 30px;
-	text-align: center;
-	width: 176px;
-	height: 56px;
-	border: #ffffff 1px;
-	background: transparent;
-	border: 1px solid #fff;
+
+.noGradBut {
+    /*outline btn*/
+    line-height: 30px;
+    text-align: center;
+    width: 176px;
+    height: 56px;
+    border: #ffffff 1px;
+    background: transparent;
+    border: 1px solid #fff;
 }
-.noGradBut, .noGradBut:hover, .noGradBut:active, .noGradBut:focus{
-	/*outline btn*/
-	line-height: 30px;
-	width: 176px;
-	height: 56px;
-	border: #ffffff 1px;
-	background: transparent;
-	border: 1px solid #fff;
+
+.noGradBut,
+.noGradBut:hover,
+.noGradBut:active,
+.noGradBut:focus {
+    /*outline btn*/
+    line-height: 30px;
+    width: 176px;
+    height: 56px;
+    border: #ffffff 1px;
+    background: transparent;
+    border: 1px solid #fff;
 }
+
 .noGradBut b .gradBut b {
-	text-align: center;
+    text-align: center;
 }
 
 .mainH5 {
     color: white;
 }
 
-.googleButton{
+.googleButton {
     background-image: linear-gradient(to right, #34eba1 0%, #00ff66, #34eba1 100%);
 }
 
@@ -95,70 +100,78 @@
 }
 
 ::-webkit-scrollbar {
-  width: 2px;
-  height: 2px;
+    width: 2px;
+    height: 2px;
 }
+
 ::-webkit-scrollbar-button {
-  width: 0px;
-  height: 0px;
+    width: 0px;
+    height: 0px;
 }
+
 ::-webkit-scrollbar-thumb {
-  background: #e1e1e1;
-  border: 0px none #ffffff;
-  border-radius: 50px;
+    background: #e1e1e1;
+    border: 0px none #ffffff;
+    border-radius: 50px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
-  background: #ffffff;
+    background: #ffffff;
 }
+
 ::-webkit-scrollbar-thumb:active {
-  background: #000000;
+    background: #000000;
 }
+
 ::-webkit-scrollbar-track {
-  background: #000f22;
-  border: 0px none #ffffff;
-  border-radius: 50px;
+    background: #000f22;
+    border: 0px none #ffffff;
+    border-radius: 50px;
 }
+
 ::-webkit-scrollbar-track:hover {
-  background: #000000;
+    background: #000000;
 }
+
 ::-webkit-scrollbar-track:active {
-  background: #333333;
+    background: #333333;
 }
+
 ::-webkit-scrollbar-corner {
-  background: transparent;
+    background: transparent;
 }
 
 .profileNavLink {
-	position: relative;
-	top: 5px;
+    position: relative;
+    top: 5px;
 }
 
 .marker-btn {
-  background: none;
-  border: none;
-  cursor: pointer;
+    background: none;
+    border: none;
+    cursor: pointer;
 }
 
 .marker-btn img {
-  width: 20px;
-  height: 20px;
+    width: 20px;
+    height: 20px;
 }
 
 .taskCount {
-  color: #000000 !important;
+    color: #000000 !important;
 }
 
 .userName {
-  position: absolute;
-  left: '0%';
-  top: '-50%',
+    position: absolute;
+    left: '0%';
+    top: '-50%',
 }
 
 .icons {
-  text-align: center;
+    text-align: center;
 }
 
 .facebookIcon {
-  display: inline-block;
-  text-align: justify;
+    display: inline-block;
+    text-align: justify;
 }
