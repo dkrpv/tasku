@@ -47,7 +47,7 @@ const App = () => {
 
   return (
     <div className="App">
-    <Helmet bodyAttributes={{style: 'background-color : #131421'}}/>
+    <Helmet bodyAttributes={{style: 'background-color: #131421'}}/>
     <Navbar bg="light" variant="light">
       <Navbar.Brand onClick={() => setPage('main')}><b>TaskU</b></Navbar.Brand>
       <Nav className="mr-auto">

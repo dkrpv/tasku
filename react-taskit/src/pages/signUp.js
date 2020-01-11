@@ -99,7 +99,7 @@ const App = ({ setPage, user, signOut, signInWithGoogle }) => {
         />
         <div>
         <p className="mb-0">
-          <Alert.Link onClick={() => setPage('resetPassword')}>Forgot Password?</Alert.Link>.
+          <Alert.Link onClick={() => setPage('resetPassword')}>Forgot Password?</Alert.Link>
         </p>
         </div>
         </div>

@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import styled, { keyframes } from 'styled-components';
 import { fadeIn } from 'react-animations';
 import '.././App.css';
-
+import Contact from './contact'
 
 const FadeIn = styled.div`animation: 2s ${keyframes`${fadeIn}`}`;
 
@@ -40,6 +40,7 @@ const Main = ({ setPage }) => {
       <Button className="noGradBut" onClick={() => setPage('createTask')}><b>Become a Tasker</b></Button>
     </div>
     </FadeIn>
+    
     </div>
     )
 }
