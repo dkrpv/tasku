@@ -24,9 +24,6 @@ else {
 
 }
 
-console.log(usrName)
-
-
 
 var key = Math.floor(Math.random() * 10000000000);
 
