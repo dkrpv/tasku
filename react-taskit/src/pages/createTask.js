@@ -86,6 +86,7 @@ getGeocode(address) {
             latitude: this.state.latitude
           });
           console.log(this.state.latitude);
+          console.log(this.state.longitude);
         },
         error => {
           console.error(error);
@@ -102,21 +103,28 @@ getGeocode(address) {
   addTask = e => {
     e.preventDefault();
     this.getCoordinates();
-    console.log(this.state.latitude)
-    
-    const taskRef = db.collection("tasks").add({
-      address: this.state.address,
-      category: this.state.category,
-      city: this.state.city,
-      offer: this.state.offer,
-      title: this.state.title,
-      date: date,
-      description: this.state.description,
-      key: key,
-      usrName: usrName,
-      longitude: this.state.longitude,
-      latitude: this.state.latitude
-    });
+    console.log(this.state.longitude)
+    try {
+      console.log("Success!");
+      latitude = this.state.latitude;
+      longitude = this.state.longitude;
+      const taskRef = db.collection("tasks").add({
+        address: this.state.address,
+        category: this.state.category,
+        city: this.state.city,
+        offer: this.state.offer,
+        title: this.state.title,
+        date: date,
+        description: this.state.description,
+        key: key,
+        usrName: usrName,
+        longitude: longitude,
+        latitude: latitude
+      });
+    }
+    catch {
+      console.log("Coordinates not real")
+    }
 
     this.setState({
       address: "",

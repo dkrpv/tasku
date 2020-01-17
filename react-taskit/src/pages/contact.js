@@ -28,7 +28,7 @@ import InstagramIcon from '@material-ui/icons/Instagram';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 
-const FadeIn = styled.div`animation: 2s ${keyframes`${fadeIn}`}`;
+const FadeIn = styled.div `animation: 2s ${keyframes`${fadeIn}`}`;
 var today = new Date();
 var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
 var usrName = "";

@@ -13,7 +13,7 @@ import 'firebase/auth';
 //* Material UI Avatar
 
 var repCount = 0;
-const FadeIn = styled.div`animation: 2s ${keyframes`${fadeIn}`}`;
+const FadeIn = styled.div `animation: 2s ${keyframes`${fadeIn}`}`;
 
 var usrName = "";
 
