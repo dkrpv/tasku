@@ -8,6 +8,7 @@ import styled, { keyframes } from 'styled-components';
 import { fadeIn } from 'react-animations';
 import * as firebase from 'firebase/app';
 import 'firebase/auth';
+import Button from 'react-bootstrap/Button'
 
 
 //* Material UI Avatar
@@ -51,18 +52,13 @@ const Profile = ({ setPage }) => {
         <Tab eventKey="createTask" title="Create Task">
         <Alert variant="light"
             style={{
-              height: '60vh',
+              height: '20vh',
               width: '70vh',
             }}
           >
-            <Alert.Heading>Tasks in your Area</Alert.Heading>
-            <p>
-              There are no tasks available. <Alert.Link onClick={() => setPage('createTask')}>Create</Alert.Link> one now!
-            </p>
-            <hr />
-            <p className="mb-0">
-              Before doing tasks, please read our <Alert.Link>Terms And Conditions</Alert.Link>.
-            </p>
+            <Alert.Heading>Create Task</Alert.Heading>
+              <p>Before creating a task, make sure to read our <Alert.Link onClick={() => setPage('termsheet')}>Terms And Conditions</Alert.Link>.</p>
+                <Button variant="success" onClick={() => setPage('createTask')}>Create Task</Button>
         </Alert>
         </Tab>
         <Tab eventKey="myTask" title="My Tasks">
