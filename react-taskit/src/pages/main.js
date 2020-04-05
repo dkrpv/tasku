@@ -36,8 +36,8 @@ const Main = ({ setPage }) => {
       
       </h5>
       <br />
-      <Button className="gradBut" onClick={() => setPage('tasks')}><b>Search for Tasks</b></Button>
-      <Button className="noGradBut" onClick={() => setPage('createTask')}><b>Become a Tasker</b></Button>
+      <Button className="gradBut" href="/tasks"><b>Search for Tasks</b></Button>
+      <Button className="noGradBut" href="/createtask"><b>Become a Tasker</b></Button>
     </div>
     </FadeIn>
     
