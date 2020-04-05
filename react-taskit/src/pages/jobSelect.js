@@ -94,7 +94,7 @@ const useStyles = makeStyles(theme => ({
           position: 'absolute', left: '50%', top: '70%',
           transform: 'translate(-50%, -50%)',
         }}>
-        <Button variant="contained" color="primary" onClick={() => setPage('signUp')}>
+        <Button variant="contained" color="primary" href="/signup">
           Next
         </Button>
         </div>

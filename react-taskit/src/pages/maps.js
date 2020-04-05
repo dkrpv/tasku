@@ -113,10 +113,8 @@ const TaskList = () => {
         }
     }, [])
 
-    return ( <
-        div >
-        <
-        ReactMapGL {...viewport }
+    return ( <div>
+        <ReactMapGL {...viewport }
         mapboxApiAccessToken = { "pk.eyJ1IjoiZWV0dXBlIiwiYSI6ImNrM3ZzcGNudDBwa3kzb28zcHV6bjdqYTAifQ.nl-qZJk6zZ8sd5MODAImKw" }
         mapStyle = "mapbox://styles/eetupe/ck4cqg2r43eia1cpi3pnac7w5"
         onViewportChange = {
@@ -124,53 +122,45 @@ const TaskList = () => {
                 setViewport(viewport)
             }
         } > {
-            tasks.map((tasks) =>
-                <
-                div >
-                <
-                Marker key = { tasks.key }
-                latitude = { tasks.latitude }
-                longitude = { tasks.longitude } >
-                <
-                button className = "marker-btn"
+            tasks.map((task) =>
+                <div>
+                <Marker key = { task.id }
+                latitude = { task.latitude }
+                longitude = { task.longitude } >
+                <button className = "marker-btn"
                 onClick = {
                     (e) => {
                         e.preventDefault();
-                        setSelectedTask(tasks)
+                        setSelectedTask(task)
                     }
                 } >
-                <
-                LocationOnIcon > < /LocationOnIcon> < /
-                button > <
-                /Marker>
+                <LocationOnIcon > </LocationOnIcon> 
+                </button> 
+                </Marker>
 
                 {
-                    selectedTask ? ( <
-                        Popup latitude = { tasks.latitude }
-                        longitude = { tasks.longitude }
+                    selectedTask ? ( 
+                        <Popup latitude = { task.latitude }
+                        longitude = { task.longitude }
                         onClose = {
                             () => {
                                 setSelectedTask(null)
                             }
                         } >
-                        <
-                        div key = { tasks.id } >
-                        <
-                        p > { tasks.title } < /p> < /
-                        div > <
-                        /Popup>
+                        <div key = { task.id }>
+                        <p> { task.title } </p> 
+                        </div> 
+                        </Popup>
 
                     ) : null
-                } <
-                /div>
+                } 
+                </div>
             )
         }
 
-        <
-        /ReactMapGL>
+        </ReactMapGL>
 
-        <
-        /div>
+        </div>
     )
 }
 

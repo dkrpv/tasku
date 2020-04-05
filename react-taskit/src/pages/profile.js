@@ -22,7 +22,7 @@ const Profile = ({ setPage }) => {
     usrName = firebase.auth().currentUser.displayName;
   }
   else {
-    setPage("signUp")
+    window.location.href = "/signup"
   }
   return (
   <div className="profile">

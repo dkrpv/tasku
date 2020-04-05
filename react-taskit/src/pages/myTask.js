@@ -24,11 +24,11 @@ const MyTask = ({ setPage }) => {
       >
         <Alert.Heading>Your Tasks</Alert.Heading>
         <p>
-          You have no Tasks. <Alert.Link onClick={() => setPage('createTask')}>Create</Alert.Link> one now!
+          You have no Tasks. <Alert.Link href="/mytask">Create</Alert.Link> one now!
         </p>
         <hr />
         <p className="mb-0">
-          Before creating tasks, please read our <Alert.Link onClick={() => setPage('termsheet')}>Terms And Conditions</Alert.Link>.
+          Before creating tasks, please read our <Alert.Link href="/terms">Terms And Conditions</Alert.Link>.
         </p>
     </Alert>
     </FadeIn>

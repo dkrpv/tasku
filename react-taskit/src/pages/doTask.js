@@ -24,11 +24,11 @@ const DoTask = ({ setPage }) => {
       >
         <Alert.Heading>Tasks in your Area</Alert.Heading>
         <p>
-          There are no tasks available. <Alert.Link onClick={() => setPage('createTask')}>Create</Alert.Link> one now!
+          There are no tasks available. <Alert.Link href="/createtask">Create</Alert.Link> one now!
         </p>
         <hr />
         <p className="mb-0">
-          Before doing tasks, please read our <Alert.Link onClick={() => setPage('termsheet')}>Terms And Conditions</Alert.Link>.
+          Before doing tasks, please read our <Alert.Link href="/terms">Terms And Conditions</Alert.Link>.
         </p>
     </Alert>
     </FadeIn>

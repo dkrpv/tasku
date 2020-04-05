@@ -81,14 +81,14 @@ const App = ({ setPage, user, signOut, signInWithGoogle }) => {
           <p>Hello, {firebase.auth().currentUser.displayName}</p>
           <Avatar source={firebase.auth().currentUser.photoURL}></Avatar>
           <Button id="nextButton" onClick={signUserOut}>Sign out!</Button>
-          <Button className="googleButton" id="nextButton" variant="success" onClick={() => setPage('profile')}>
+          <Button className="googleButton" id="nextButton" variant="success" href="/profile">
           Next
         </Button>
           </div>
         ) : (
         <div>
         <p className="mb-0">
-          Before signing up, please read our <Alert.Link>Terms And Conditions</Alert.Link>.
+          Before signing up, please read our <Alert.Link href="/terms">Terms And Conditions</Alert.Link>.
         </p>
         <StyledFirebaseAuth
           uiConfig={uiConfig}
@@ -96,7 +96,7 @@ const App = ({ setPage, user, signOut, signInWithGoogle }) => {
         />
         <div>
         <p className="mb-0">
-          <Alert.Link onClick={() => setPage('resetPassword')}>Forgot Password?</Alert.Link>
+          <Alert.Link href="/resetpassword">Forgot Password?</Alert.Link>
         </p>
         </div>
         </div>

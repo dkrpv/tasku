@@ -7,7 +7,6 @@ import CreateTask from './pages/createTask';
 import Profile from './pages/profile';
 import DoTask from './pages/doTask';
 import MyTask from './pages/myTask';
-import MapPage from './pages/mapPage';
 import SignUp from './pages/signUp';
 import SignIn from './pages/signIn';
 import JobSelect from './pages/jobSelect'
@@ -15,11 +14,14 @@ import Helmet from 'react-helmet';
 import Terms from './pages/termsheet'
 import Tasks from './pages/tasks'
 import ResetPassword from './pages/resetPassword'
-import Map from './pages/mapPage'
+import MapPage from './pages/maps'
 import Contact from './pages/contact'
+import errorPage from './pages/error'
 import './App.css';
 import * as firebase from 'firebase/app';
 import 'firebase/auth';
+
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
 
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -45,39 +47,44 @@ const App = () => {
         }
 
   return (
+    <Router>
     <div className="App">
     <Helmet bodyAttributes={{style: 'background-color: #131421'}}/>
     <Navbar bg="light" variant="light">
-      <Navbar.Brand onClick={() => setPage('main')}><b>TaskU</b></Navbar.Brand>
+      <Navbar.Brand href="/"><b>TaskU</b></Navbar.Brand>
       <Nav className="mr-auto">
-      <Nav.Link className="grad" onClick={() => setPage('main')}><b>Home</b></Nav.Link>
-      <Nav.Link onClick={() => setPage('profile')}>Profile</Nav.Link>
-      <Nav.Link onClick={() => setPage('myTask')}>My Tasks</Nav.Link>
-      <Nav.Link onClick={() => setPage('mapPage')}>Map</Nav.Link>
-      <Nav.Link onClick={() => setPage('contact')}>Contact Us</Nav.Link>
+      <Nav.Link className="grad" href="/"><b>Home</b></Nav.Link>
+      <Nav.Link href="/profile">Profile</Nav.Link>
+      <Nav.Link href="/mytasks">My Tasks</Nav.Link>
+      <Nav.Link href="/map">Map</Nav.Link>
+      <Nav.Link href="/contact">Contact Us</Nav.Link>
       </Nav>
       <Nav className="ml-auto">
-      <Button variant="dark" onClick={() => setPage('signUp')}>{ signUp }</Button>
-      <Nav.Link onClick={() => setPage('profile')}>{ usrName }</Nav.Link>
+      <Button variant="dark" href="/signup">{ signUp }</Button>
+      <Nav.Link href="/profile">{ usrName }</Nav.Link>
       <Avatar>{ firstLetter }</Avatar>
       </Nav>
     </Navbar>
-    {page === 'main' && <Main setPage={setPage} />}
-    {page === 'createTask' && <CreateTask setPage={setPage} />}
-    {page === 'profile' && <Profile setPage={setPage} />}
-    {page === 'doTask' && <DoTask setPage={setPage} />}
-    {page === 'myTask' && <MyTask setPage={setPage} />}
-    {page === 'mapPage' && <MapPage setPage={setPage} />}
-    {page === 'signIn' && <SignIn setPage={setPage} />}
-    {page === 'signUp' && <SignUp setPage={setPage} />}
-    {page === 'jobSelect' && <JobSelect setPage={setPage} />}
-    {page === 'termsheet' && <Terms setPage={setPage} />}
-    {page === 'tasks' && <Tasks setPage={setPage} />}
-    {page === 'resetPassword' && <ResetPassword setPage={setPage} />}
-    {page === 'mapPage' && <Map setPage={setPage} />}
-    {page === 'contact' && <Contact setPage={setPage} />}
+    <div>
+      <Switch>
+        <Route exact path="/" component={Main} />
+        <Route exact path="/createtask" component={CreateTask} />
+        <Route exact path="/profile" component={Profile} />
+        <Route exact path="/dotask" component={DoTask} />
+        <Route exact path="/mytasks" component={MyTask} />
+        <Route exact path="/map" component={MapPage} />
+        <Route exact path="/signup" component={SignUp} />
+        <Route exact path="/jobs" component={JobSelect} />
+        <Route exact path="/terms" component={Terms} />
+        <Route exact path="/tasks" component={Tasks} />
+        <Route exact path="/resetpassword" component={ResetPassword} />
+        <Route exact path="/contact" component={Contact} />
+        <Route path='*' exact={true} component={errorPage} />
+      </Switch>
     </div>
+    </div>
+    </Router>
   );
 }
 
-                                                                export default App;
+export default App;
