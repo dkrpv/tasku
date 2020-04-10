@@ -45,6 +45,7 @@
 
 .gradBut {
     background-image: linear-gradient(to right, #01913b 0%, #32d975, #01913b 100%);
+    line-height: 30px;
     width: 176px;
     height: 56px;
     border: none;

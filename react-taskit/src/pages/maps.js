@@ -11,7 +11,7 @@ import ReactMapGL, { Marker, Popup } from "react-map-gl"
 import LocationOnIcon from '@material-ui/icons/LocationOn';
 
 import { auth, db } from './firebaseConfig'
-Geocode.setApiKey("AIzaSyDwtqxamzXJf8dV21Gy5IWYKUufoUaojkA");
+Geocode.setApiKey(process.env.REACT_APP_GEOCODE_API_KEY);
 
 function getGeocode(address) {
     Geocode.fromAddress(address).then(
@@ -115,7 +115,7 @@ const TaskList = () => {
 
     return ( <div>
         <ReactMapGL {...viewport }
-        mapboxApiAccessToken = { "pk.eyJ1IjoiZWV0dXBlIiwiYSI6ImNrM3ZzcGNudDBwa3kzb28zcHV6bjdqYTAifQ.nl-qZJk6zZ8sd5MODAImKw" }
+        mapboxApiAccessToken = { process.env.REACT_APP_MAPBOX_API_KEY }
         mapStyle = "mapbox://styles/eetupe/ck4cqg2r43eia1cpi3pnac7w5"
         onViewportChange = {
             (viewport) => {
