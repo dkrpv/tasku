@@ -24,7 +24,7 @@ const MyTask = ({ setPage }) => {
       >
         <Alert.Heading>Your Tasks</Alert.Heading>
         <p>
-          You have no Tasks. <Alert.Link href="/mytask">Create</Alert.Link> one now!
+          You have no Tasks. <Alert.Link href="/createtask">Create</Alert.Link> one now!
         </p>
         <hr />
         <p className="mb-0">

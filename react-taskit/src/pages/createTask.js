@@ -12,6 +12,7 @@ import { Checkbox } from '@material-ui/core';
 import Geocode from "react-geocode";
 import { withStyles } from '@material-ui/core/styles';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Alert from 'react-bootstrap/Alert';
 
 //* Firebase imports
 import { db } from './firebaseConfig'
@@ -41,7 +42,7 @@ const GreenCheckbox = withStyles({
 var latitude = 0
 var longitude = 0
 
-Geocode.setApiKey("AIzaSyDwtqxamzXJf8dV21Gy5IWYKUufoUaojkA");
+Geocode.setApiKey(process.env.REACT_APP_GEOCODE_API_KEY);
 
 class createTask extends React.Component {
   
@@ -104,8 +105,11 @@ getGeocode(address) {
     try {
       console.log("Success!");
       latitude = this.state.latitude;
+      console.log(latitude)
       longitude = this.state.longitude;
       const taskRef = db.collection("tasks").add({
+        longitude: longitude,
+        latitude: latitude,
         address: this.state.address,
         category: this.state.category,
         city: this.state.city,
@@ -114,9 +118,7 @@ getGeocode(address) {
         date: date,
         description: this.state.description,
         key: key,
-        usrName: usrName,
-        longitude: longitude,
-        latitude: latitude
+        usrName: usrName
       });
     }
     catch {
@@ -188,7 +190,7 @@ getGeocode(address) {
       <Form.Label className="formText">Description</Form.Label>
       <Form.Control as="textarea" rows="2" type="text" name="description" placeholder="Walk my dog please" onChange={this.updateInput} value={this.state.description}/>
     </Form.Group>
-
+    
     <FormControlLabel className="white"
         control={
           <GreenCheckbox
@@ -199,7 +201,11 @@ getGeocode(address) {
       />
       <br />
 
-    <Button className="gradBut" type="submit" onClick={this.addTask}>
+    <Button className="gradBut" type="submit" onClick={
+      null ? 
+      alert("You must accept the Terms and Conditions") : 
+      this.addTask  }
+      >
       <b>Create</b>
     </Button>
     </Form>
