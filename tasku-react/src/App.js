@@ -1,12 +1,19 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Main from './pages/main';
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
 import './App.css';
 
 const App = () => {
-  const [page, setPage] = useState('main');
   return (
-    <div className="Header">
+    <Router>
+    <div className="App">
+    <div>
+      <Switch>
+        <Route exact path="/" component={Main} />
+      </Switch>
     </div>
+    </div>
+    </Router>
   );
 }
 
