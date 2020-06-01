@@ -32,10 +32,11 @@ const App = () => {
       <Helmet bodyAttributes={{style: 'background-color: #131421'}}/>
       <AppBar style={{ background: '#ffffff' }} position="static">
         <Toolbar>
-          <Typography variant="h6" className={classes.title}>
-            <b>Tasku</b>
+          <Typography variant="h5" className={classes.title}>
+            <p className="mainH1">Tasku</p>
           </Typography>
-          <Button variant="contained">Join Tasku</Button>
+          <Button>Log In</Button>
+          <Button variant="contained" color="primary">Join Tasku</Button>
         </Toolbar>
       </AppBar>
     <div>
