@@ -6,6 +6,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
+import {Helmet} from "react-helmet";
 import './App.css';
 import * as firebase from 'firebase/app';
 import 'firebase/auth';
@@ -28,6 +29,7 @@ const App = () => {
   return (
     <Router>
     <div className={classes.root}>
+      <Helmet bodyAttributes={{style: 'background-color: #131421'}}/>
       <AppBar style={{ background: '#ffffff' }} position="static">
         <Toolbar>
           <Typography variant="h6" className={classes.title}>
