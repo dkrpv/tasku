@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Main from './pages/main';
 import './App.css';
 
-function App() {
+const App = () => {
+  const [page, setPage] = useState('main');
   return (
-    <div className="App">
+    <div className="Header">
     </div>
   );
 }
+
 
 export default App;
