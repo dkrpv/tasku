@@ -10,6 +10,7 @@ import {Helmet} from "react-helmet";
 import './App.css';
 import * as firebase from 'firebase/app';
 import 'firebase/auth';
+import SignUp from './pages/signUp';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -42,6 +43,7 @@ const App = () => {
     <div>
       <Switch>
         <Route exact path="/" component={Main} />
+        <Route exact path="/signup" component={SignUp} />
       </Switch>
     </div>
     </div>
