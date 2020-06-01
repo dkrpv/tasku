@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     flexGrow: 1,
-    color: "#0000",
+    color: 'black',
   },
 }));
 
@@ -31,9 +31,9 @@ const App = () => {
       <AppBar style={{ background: '#ffffff' }} position="static">
         <Toolbar>
           <Typography variant="h6" className={classes.title}>
-            News
+            <b>Tasku</b>
           </Typography>
-          <Button color="inherit">Tasku</Button>
+          <Button variant="contained">Join Tasku</Button>
         </Toolbar>
       </AppBar>
     <div>
