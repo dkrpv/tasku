@@ -1,6 +1,30 @@
+.logo {
+    font-family: Poppins;
+    font-weight: 700;
+}
+
 .mainH1 {
     font-family: Poppins;
     font-weight: 700;
+    color: white;
+}
+
+.grad {
+    background: -webkit-linear-gradient(#34eba1, #01913b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.green {
+    color: #28e058;
+}
+
+
+.filledButton {
+    background: linear-gradient(247.4deg, #21C997 22.31%, #28E058 100.3%), #C4C4C4 !important;
+    border-radius:0 !important;
+    font-family: 'Nunito Sans', sans-serif !important;
+    font-weight: bold !important;
 }
 
 ::-webkit-scrollbar {

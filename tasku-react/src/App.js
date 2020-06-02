@@ -34,10 +34,10 @@ const App = () => {
       <AppBar style={{ background: '#ffffff' }} position="static">
         <Toolbar>
           <Typography variant="h5" className={classes.title}>
-            <p className="mainH1">Tasku</p>
+            <p className="logo">Tasku</p>
           </Typography>
           <Button>Log In</Button>
-          <Button variant="contained" color="primary">Join Tasku</Button>
+          <Button variant="contained" color="primary" className="filledButton" href="/signup">Join Tasku</Button>
         </Toolbar>
       </AppBar>
     <div>
