@@ -9,6 +9,13 @@
     color: white;
 }
 
+.mainP {
+    font-family: Nunito Sans !important; 
+}
+
+.Poppins {
+    font-family: Poppins !important;
+}
 .grad {
     background: -webkit-linear-gradient(#34eba1, #01913b);
     -webkit-background-clip: text;
@@ -68,3 +75,24 @@
 ::-webkit-scrollbar-corner {
     background: transparent;
 }
+.separator {
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+.separator::before, .separator::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid #d3d3d3;
+}
+.separator::before {
+    margin-right: .25em;
+}
+.separator::after {
+    margin-left: .25em;
+}
+
+.parent{
+    position: relative;
+    width: 100%;
+  }

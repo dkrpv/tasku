@@ -11,6 +11,9 @@ import './App.css';
 import * as firebase from 'firebase/app';
 import 'firebase/auth';
 import SignUp from './pages/signUp';
+import ModalPage from './pages/modal'
+import CustomizedDialogs from './pages/modal'
+import Cards from './pages/cards'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -34,16 +37,18 @@ const App = () => {
       <AppBar style={{ background: '#ffffff' }} position="static">
         <Toolbar>
           <Typography variant="h5" className={classes.title}>
-            <p className="logo">Tasku</p>
+            <p className="logo"  alt="text">Tasku</p>
           </Typography>
           <Button>Log In</Button>
-          <Button variant="contained" color="primary" className="filledButton" href="/signup">Join Tasku</Button>
+          <Button variant="contained" color="primary" className="filledButton" component={ModalPage}></Button>
         </Toolbar>
       </AppBar>
     <div>
       <Switch>
         <Route exact path="/" component={Main} />
-        <Route exact path="/signup" component={SignUp} />
+        <Route exact path="/signup" component={ModalPage} />
+        <Route exact path="/cards" component={Cards} />
+        <Route path='*' exact={true} component={Main} />
       </Switch>
     </div>
     </div>
