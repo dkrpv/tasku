@@ -14,6 +14,8 @@ import SignUp from './pages/signUp';
 import ModalPage from './pages/modal'
 import CustomizedDialogs from './pages/modal'
 import Cards from './pages/cards'
+import Join from './pages/join'
+import Login from './pages/login'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -48,6 +50,8 @@ const App = () => {
         <Route exact path="/" component={Main} />
         <Route exact path="/signup" component={ModalPage} />
         <Route exact path="/cards" component={Cards} />
+        <Route exact path="/join" component={Join} />
+        <Route exact path="/login" component={Login} />
         <Route path='*' exact={true} component={Main} />
       </Switch>
     </div>

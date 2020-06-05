@@ -73,7 +73,7 @@ const DialogContent = withStyles((theme) => ({
 
 
 export default function CustomizedDialogs() {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = React.useState(true);
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -101,9 +101,6 @@ export default function CustomizedDialogs() {
 
   return (
     <div>
-      <Button variant="contained" color="primary" className="filledButton" onClick={handleClickOpen}>
-        Join Tasku
-      </Button>
       <Dialog onClose={handleClose} aria-labelledby="customized-dialog-title" open={open}>
         <center>
         <DialogTitle id="customized-dialog-title" onClose={handleClose}  className="Poppins">
@@ -111,12 +108,25 @@ export default function CustomizedDialogs() {
         </DialogTitle>
         </center>
         <DialogContent>
+        <StyledFirebaseAuth
+          uiConfig={uiConfig}
+          firebaseAuth={firebase.auth()}
+        /> 
+        <div class="separator">OR</div>
         <Paper component="form" className={classes.root}>
         <InputBase
             className={classes.input}
-            placeholder="Enter your email"
+            placeholder="Email / Username"
             inputProps={{ 'aria-label': 'enter your email' }}
             type="email"
+        />
+        </Paper>
+        <Paper component="form" className={classes.root}>
+        <InputBase
+            className={classes.input}
+            placeholder="Password"
+            inputProps={{ 'aria-label': 'enter your email' }}
+            type="password"
         />
         </Paper>
         <br></br>
@@ -124,18 +134,10 @@ export default function CustomizedDialogs() {
         <Button variant="contained" color="primary" className="filledButton" href="/join">Continue</Button>
         </center>
         <br></br>
-        <div class="separator">OR</div>
-        <StyledFirebaseAuth
-          uiConfig={uiConfig}
-          firebaseAuth={firebase.auth()}
-        /> 
+    
         <center>
-          <p>By joining I agree to receive emails from Tasku.</p>
-        </center>
-        <hr />
-        <center>
-          <span>Already a member? </span>
-          <Link to="/login" className="green">Sign In</Link>
+          <span>Not a member yet? </span>
+          <Link to="/modal" className="green">Join now</Link>
         </center>
         </DialogContent>
       </Dialog>

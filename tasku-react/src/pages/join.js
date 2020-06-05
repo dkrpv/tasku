@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useCallback } from "react";
+import { withRouter } from "react-router";
 import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
@@ -15,28 +16,11 @@ import withFirebaseAuth from 'react-with-firebase-auth'
 import * as firebase from 'firebase/app';
 import 'firebase/auth';
 import '.././App.css';
+import firebaseConfig from '../firebaseConfig'
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth'
 import FacebookLogin from 'react-facebook-login';
 import { FacebookLoginButton } from "react-social-login-buttons";
-import {
-  BrowserRouter as Router,
-  Link,
-  Route,
-  Switch,
-} from 'react-router-dom';
-
-const styles = (theme) => ({
-  root: {
-    margin: 0,
-    padding: theme.spacing(2),
-  },
-  closeButton: {
-    position: 'absolute',
-    right: theme.spacing(1),
-    top: theme.spacing(1),
-    color: theme.palette.grey[500],
-  },
-});
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -51,29 +35,10 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const DialogTitle = withStyles(styles)((props) => {
-  const { children, classes, onClose, ...other } = props;
-  return (
-    <MuiDialogTitle disableTypography className={classes.root} {...other}>
-      <Typography variant="h6">{children}</Typography>
-      {onClose ? (
-        <IconButton aria-label="close" className={classes.closeButton} onClick={onClose}>
-          <CloseIcon />
-        </IconButton>
-      ) : null}
-    </MuiDialogTitle>
-  );
-});
 
-const DialogContent = withStyles((theme) => ({
-  root: {
-    padding: theme.spacing(2),
-  },
-}))(MuiDialogContent);
+const SignUp = ({ history }) => {
 
-
-export default function CustomizedDialogs() {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = React.useState(true);
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -98,12 +63,57 @@ export default function CustomizedDialogs() {
   const responseFacebook = (response) => {
     console.log(response);
   }
+    const styles = (theme) => ({
+      root: {
+        margin: 0,
+        padding: theme.spacing(2),
+      },
+      closeButton: {
+        position: 'absolute',
+        right: theme.spacing(1),
+        top: theme.spacing(1),
+        color: theme.palette.grey[500],
+      },
+    });
+    
+    
+    
+    const DialogTitle = withStyles(styles)((props) => {
+      const { children, classes, onClose, ...other } = props;
+      return (
+        <MuiDialogTitle disableTypography className={classes.root} {...other}>
+          <Typography variant="h6">{children}</Typography>
+          {onClose ? (
+            <IconButton aria-label="close" className={classes.closeButton} onClick={onClose}>
+              <CloseIcon />
+            </IconButton>
+          ) : null}
+        </MuiDialogTitle>
+      );
+    });
+    
+    const DialogContent = withStyles((theme) => ({
+      root: {
+        padding: theme.spacing(2),
+      },
+    }))(MuiDialogContent);
+    
+    const handleSignUp = useCallback(async event => {
+      event.preventDefault();
+      const { email, password } = event.target.elements;
+      try {
+        await firebaseConfig
+          .auth()
+          .createUserWithEmailAndPassword(email.value, password.value);
+        history.push("/");
+      } catch (error) {
+        alert(error);
+      }
+    }, [history]);
+  
 
   return (
     <div>
-      <Button variant="contained" color="primary" className="filledButton" onClick={handleClickOpen}>
-        Join Tasku
-      </Button>
       <Dialog onClose={handleClose} aria-labelledby="customized-dialog-title" open={open}>
         <center>
         <DialogTitle id="customized-dialog-title" onClose={handleClose}  className="Poppins">
@@ -111,27 +121,26 @@ export default function CustomizedDialogs() {
         </DialogTitle>
         </center>
         <DialogContent>
-        <Paper component="form" className={classes.root}>
+        <center>
+        <form onSubmit={handleSignUp}>
         <InputBase
             className={classes.input}
-            placeholder="Enter your email"
+            placeholder="Choose a Username"
             inputProps={{ 'aria-label': 'enter your email' }}
             type="email"
+            name="email"
         />
-        </Paper>
-        <br></br>
-        <center>
-        <Button variant="contained" color="primary" className="filledButton" href="/join">Continue</Button>
+        <InputBase
+            className={classes.input}
+            placeholder="Choose a Password"
+            inputProps={{ 'aria-label': 'enter your email' }}
+            type="password"
+            name="password"
+        />
+        <Button variant="contained" color="primary" className="filledButton" type="submit">Join</Button>
+        </form>
         </center>
-        <br></br>
-        <div class="separator">OR</div>
-        <StyledFirebaseAuth
-          uiConfig={uiConfig}
-          firebaseAuth={firebase.auth()}
-        /> 
-        <center>
-          <p>By joining I agree to receive emails from Tasku.</p>
-        </center>
+        <br />
         <hr />
         <center>
           <span>Already a member? </span>
@@ -143,4 +152,4 @@ export default function CustomizedDialogs() {
   );
 }
 
-export { CustomizedDialogs }
+export default withRouter(SignUp);
